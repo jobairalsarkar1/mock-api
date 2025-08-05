@@ -5,10 +5,5 @@ export default function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section>
-      <p className="text-5xl text-center">Auth Layout</p>
-      {children}
-    </section>
-  );
+  return <section>{children}</section>;
 }
