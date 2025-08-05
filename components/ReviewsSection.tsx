@@ -1,198 +1,106 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Star, Quote, Heart, Sparkles } from "lucide-react";
+import {
+  Star,
+  Quote,
+  Sparkles,
+  ChevronLeft,
+  ChevronRight,
+  UserStar,
+} from "lucide-react";
+import CustomBadge from "./CustomBadge";
+import { testimonials } from "@/lib/constants";
 
-const testimonials = [
-  {
-    name: "Sarah Chen",
-    role: "Frontend Developer",
-    company: "TechStart Inc.",
-    content:
-      "DataForge has completely transformed how we prototype applications. The realistic data makes our demos feel authentic and helps stakeholders understand the vision immediately.",
-    rating: 5,
-    from: "#3b82f6",
-    to: "#06b6d4",
-    glow: "rgba(59,130,246,0.2)",
-    border: "#3b82f650",
-  },
-  {
-    name: "Marcus Rodriguez",
-    role: "Full Stack Engineer",
-    company: "InnovateNow",
-    content:
-      "The API response times are incredible, and the data quality is unmatched. We've been able to focus entirely on our application logic instead of worrying about test data.",
-    rating: 5,
-    from: "#a855f7",
-    to: "#ec4899",
-    glow: "rgba(168,85,247,0.2)",
-    border: "#a855f750",
-  },
-  {
-    name: "Emma Thompson",
-    role: "Product Manager",
-    company: "Digital Solutions Co.",
-    content:
-      "What impressed me most is how easy it was to integrate. Our entire team was up and running within minutes, and the documentation is crystal clear.",
-    rating: 5,
-    from: "#10b981",
-    to: "#22c55e",
-    glow: "rgba(16,185,129,0.2)",
-    border: "#10b98150",
-  },
-  {
-    name: "David Kim",
-    role: "Backend Developer",
-    company: "CloudTech Systems",
-    content:
-      "The variety of endpoints available is fantastic. Whether we need user data, e-commerce products, or social media posts, DataForge has exactly what we need.",
-    rating: 5,
-    from: "#f97316",
-    to: "#ef4444",
-    glow: "rgba(249,115,22,0.2)",
-    border: "#f9731650",
-  },
-  {
-    name: "Lisa Wang",
-    role: "Tech Lead",
-    company: "StartupHub",
-    content:
-      "DataForge has become an essential part of our development workflow. The consistent data structure and reliability have significantly improved our testing process.",
-    rating: 5,
-    from: "#6366f1",
-    to: "#a855f7",
-    glow: "rgba(99,102,241,0.2)",
-    border: "#6366f150",
-  },
-  {
-    name: "James Miller",
-    role: "Mobile Developer",
-    company: "AppCraft Studios",
-    content:
-      "The mobile-optimized responses and fast loading times make DataForge perfect for our React Native applications. It's exactly what we needed.",
-    rating: 5,
-    from: "#f43f5e",
-    to: "#ec4899",
-    glow: "rgba(244,63,94,0.2)",
-    border: "#f43f5e50",
-  },
-];
+function getVisibleSlides(width: number) {
+  if (width >= 1024) return 3;
+  if (width >= 768) return 2;
+  return 1;
+}
 
-const ReviewsSection = () => {
-  const [current, setCurrent] = useState(0);
+export default function ReviewsSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [visibleSlides, setVisibleSlides] = useState(1);
 
-  // Auto-advance every 5 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
+    const updateVisibleSlides = () => {
+      setVisibleSlides(getVisibleSlides(window.innerWidth));
+    };
+
+    updateVisibleSlides();
+    window.addEventListener("resize", updateVisibleSlides);
+    return () => window.removeEventListener("resize", updateVisibleSlides);
   }, []);
 
-  return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background floating blur bubbles */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-10 right-10 w-32 h-32 bg-[#f43f5e20] rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute bottom-20 left-10 w-40 h-40 bg-[#3b82f620] rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1.5s" }}
-        />
-        <div
-          className="absolute top-1/3 right-1/4 w-24 h-24 bg-[#a855f720] rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "3s" }}
-        />
-      </div>
+  const maxSlide = Math.ceil(testimonials.length / visibleSlides) - 1;
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+  const next = () => setCurrentSlide((prev) => Math.min(prev + 1, maxSlide));
+  const prev = () => setCurrentSlide((prev) => Math.max(prev - 1, 0));
+
+  return (
+    <section className="pt-20 pb-8 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0e0e10] to-[#1a1a1d] opacity-50 pointer-events-none" />
+      <div className="absolute top-10 right-10 w-32 h-32 bg-pink-500/60 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-blue-500/70 rounded-full blur-3xl animate-pulse [animation-delay:1.5s]" />
+      <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-purple-500/80 rounded-full blur-3xl animate-pulse [animation-delay:3s]" />
+
+      <div className="relative max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center text-[#f87171] border border-[#fca5a5] bg-[#fca5a5]/10 text-sm px-3 py-1.5 rounded-full mb-4">
-            <Heart className="w-4 h-4 mr-2" />
-            Customer Stories
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-            Loved by{" "}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage: "linear-gradient(to right, #6366f1, #ec4899)",
-              }}
-            >
-              thousands of developers
+          <CustomBadge icon={UserStar} text="Customer Stories" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Loved by Thousands of{" "}
+            <span className="bg-gradient-to-r from-orange-200 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+              Developers
             </span>
           </h2>
-          <p className="text-lg text-[#6b7280] max-w-2xl mx-auto">
-            Join the growing community of developers who trust DataForge to
-            accelerate development.
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Join the growing community of developers who trust DataForge.
           </p>
         </div>
 
         {/* Carousel */}
-        <div className="relative w-full overflow-hidden">
+        <div className="overflow-hidden relative">
           <div
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${current * 100}%)` }}
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${(currentSlide * 100) / visibleSlides}%)`,
+              width: `${(100 * testimonials.length) / visibleSlides}%`,
+            }}
           >
-            {testimonials.map((t, i) => (
-              <div key={i} className="min-w-full px-4">
+            {testimonials.map((t, index) => (
+              <div
+                key={index}
+                className="p-4"
+                style={{ width: `${100 / testimonials.length}%` }}
+              >
                 <div
-                  className="rounded-xl p-8 transition-transform duration-500 hover:scale-[1.02]"
-                  style={{
-                    background: `linear-gradient(to bottom right, ${t.from}33, ${t.to}33)`,
-                    border: `1px solid ${t.border}`,
-                    boxShadow: `0 0 30px ${t.glow}`,
-                    backdropFilter: "blur(10px)",
-                    position: "relative",
-                  }}
+                  className={`h-full p-6 rounded-2xl ${t.gradient} ${t.glow} ${t.border} backdrop-blur-xl transition-all`}
                 >
-                  {/* shimmer */}
-                  <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] animate-[shimmer_2s_infinite]" />
-                  </div>
-
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center">
-                        <div
-                          className="w-12 h-12 rounded-full flex items-center justify-center mr-3"
-                          style={{
-                            backgroundColor: `${t.from}33`,
-                            border: `1px solid ${t.border}`,
-                          }}
-                        >
-                          <Quote
-                            className="w-6 h-6"
-                            style={{ color: t.from }}
-                          />
-                        </div>
-                        <Sparkles
-                          className="w-5 h-5"
-                          style={{ color: t.from + "99" }}
-                        />
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 border border-white/20">
+                        <Quote className="w-5 h-5 text-white/80" />
                       </div>
-                      <div className="flex">
-                        {Array.from({ length: t.rating }).map((_, j) => (
-                          <Star
-                            key={j}
-                            className="w-4 h-4 fill-[#facc15] text-[#facc15]"
-                          />
-                        ))}
-                      </div>
+                      <Sparkles className="w-4 h-4 text-white/40" />
                     </div>
-
-                    <p className="text-[#6b7280] text-sm lg:text-base leading-relaxed mb-6">
-                      {t.content}
-                    </p>
-
-                    <div
-                      className="border-t pt-4"
-                      style={{ borderColor: "#d1d5db50" }}
-                    >
-                      <div className="font-bold text-[#111827]">{t.name}</div>
-                      <div className="text-sm text-[#6b7280]">
-                        {t.role} at{" "}
-                        <span className="font-medium">{t.company}</span>
-                      </div>
+                    <div className="flex space-x-1">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <blockquote className="text-white/80 mb-4 text-sm leading-relaxed">
+                    &quot;{t.content}&quot;
+                  </blockquote>
+                  <div className="border-t border-white/10 pt-4">
+                    <div className="font-semibold text-white">{t.name}</div>
+                    <div className="text-sm text-white/60">
+                      {t.role} at{" "}
+                      <span className="font-medium">{t.company}</span>
                     </div>
                   </div>
                 </div>
@@ -200,22 +108,23 @@ const ReviewsSection = () => {
             ))}
           </div>
 
-          {/* Manual nav (optional) */}
-          <div className="flex justify-center mt-8 gap-2">
-            {testimonials.map((_, idx) => (
-              <button
-                key={idx}
-                className={`w-3 h-3 rounded-full ${
-                  current === idx ? "bg-[#ec4899]" : "bg-[#d1d5db]"
-                }`}
-                onClick={() => setCurrent(idx)}
-              />
-            ))}
-          </div>
+          {/* Controls */}
+          <button
+            onClick={prev}
+            disabled={currentSlide === 0}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/10 text-white hover:bg-white/20 p-2 rounded-full backdrop-blur-md transition"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={next}
+            disabled={currentSlide === maxSlide}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/10 text-white hover:bg-white/20 p-2 rounded-full backdrop-blur-md transition"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>
   );
-};
-
-export default ReviewsSection;
+}

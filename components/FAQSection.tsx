@@ -3,44 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { HelpCircle, ChevronDown } from "lucide-react";
 import CustomBadge from "./CustomBadge";
-
-const faqs = [
-  {
-    question: "How do I get started with DataForge?",
-    answer:
-      "Simply sign up for a free account and you'll receive your API key instantly. You can start making requests immediately with our comprehensive documentation and examples.",
-  },
-  {
-    question: "Is the data realistic and production-ready?",
-    answer:
-      "Yes! Our dummy data is carefully crafted to be realistic and comprehensive. It includes proper relationships, realistic values, and follows industry standards for data structures.",
-  },
-  {
-    question: "Can I use DataForge in production?",
-    answer:
-      "DataForge is designed for development, testing, and prototyping. For production applications, you'll want to replace our endpoints with your actual backend APIs.",
-  },
-  {
-    question: "What happens when I hit the rate limits?",
-    answer:
-      "When you reach your plan's rate limit, requests will return a 429 status code. You can upgrade your plan for higher limits or wait for the limit to reset.",
-  },
-  //   {
-  //     question: "Do you offer custom data structures?",
-  //     answer:
-  //       "Yes! Enterprise customers can request custom endpoints and data structures tailored to their specific needs. Contact our sales team to discuss your requirements.",
-  //   },
-  {
-    question: "Is my API key secure?",
-    answer:
-      "Absolutely. Your API key is encrypted and should be kept confidential. Never expose it in client-side code. Use environment variables and follow security best practices.",
-  },
-  //   {
-  //     question: "Can I cancel my subscription anytime?",
-  //     answer:
-  //       "Yes, you can cancel your subscription at any time. Your plan will remain active until the end of your billing period, and you can always downgrade to our free tier.",
-  //   },
-];
+import { faqs } from "@/lib/constants";
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

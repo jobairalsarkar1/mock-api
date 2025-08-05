@@ -1,0 +1,154 @@
+import {
+  Database,
+  BarChart3,
+  Zap,
+  Shield,
+  Clock,
+  Globe,
+  Code2,
+} from "lucide-react";
+import CustomBadge from "./CustomBadge";
+import { apiCategories } from "@/lib/constants";
+
+const features = [
+  {
+    title: "Lightning Fast",
+    description: "Global CDN ensures sub-100ms response times worldwide",
+    icon: Zap,
+    border: "border-yellow-400/30",
+    hoverShadow: "hover:shadow-[0_0_20px_#facc1599]",
+    iconGradient: "from-yellow-400 via-yellow-500 to-yellow-600",
+  },
+  {
+    title: "Production Ready",
+    description: "99.9% uptime with enterprise-grade infrastructure",
+    icon: Shield,
+    border: "border-pink-500/30",
+    hoverShadow: "hover:shadow-[0_0_20px_#ec489999]",
+    iconGradient: "from-pink-500 via-fuchsia-500 to-rose-500",
+  },
+  {
+    title: "Usage Analytics",
+    description: "Detailed insights into your API consumption and patterns",
+    icon: BarChart3,
+    border: "border-orange-400/30",
+    hoverShadow: "hover:shadow-[0_0_20px_#fb923c99]",
+    iconGradient: "from-orange-500 via-orange-600 to-orange-700",
+  },
+  {
+    title: "Real-time Updates",
+    description: "Fresh data every hour with realistic variations",
+    icon: Clock,
+    border: "border-indigo-500/30",
+    hoverShadow: "hover:shadow-[0_0_20px_#6366f199]",
+    iconGradient: "from-indigo-500 via-indigo-600 to-indigo-700",
+  },
+  {
+    title: "Global Access",
+    description: "CORS enabled, accessible from any domain or app",
+    icon: Globe,
+    border: "border-cyan-500/30",
+    hoverShadow: "hover:shadow-[0_0_20px_#06b6d499]",
+    iconGradient: "from-cyan-500 via-blue-500 to-blue-600",
+  },
+  {
+    title: "Multiple Formats",
+    description: "JSON, XML, CSV - choose your preferred data format",
+    icon: Code2,
+    border: "border-teal-500/30",
+    hoverShadow: "hover:shadow-[0_0_20px_#14b8a699]",
+    iconGradient: "from-teal-500 via-teal-600 to-teal-700",
+  },
+];
+
+const FeaturesSection = () => {
+  return (
+    <section className="pt-20 pb-8 px-6 bg-[#0e0e10] text-white relative overflow-hidden">
+      {/* Background Grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff10_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.02] z-0"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <CustomBadge icon={Database} text="API Categories" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Everything You Need to{" "}
+            <span className="bg-gradient-to-r from-orange-200 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+              Build & Test
+            </span>
+          </h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            From user management to e-commerce, our APIs cover all major use
+            cases with realistic, structured data.
+          </p>
+        </div>
+
+        {/* API Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+          {apiCategories.map((cat, index) => (
+            <div
+              key={index}
+              className={`rounded-xl bg-white/5 border ${cat.border} backdrop-blur-sm p-6 transition duration-300 ${cat.hoverShadow}`}
+            >
+              <div className="flex items-center gap-4 mb-3">
+                <div
+                  className={`w-12 h-12 bg-gradient-to-br ${cat.iconGradient} rounded-lg flex items-center justify-center`}
+                >
+                  <cat.icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">{cat.title}</h3>
+                  <p className="text-sm text-gray-400">{cat.description}</p>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {cat.endpoints.map((ep, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 rounded-full text-xs bg-white/10 text-gray-300 border border-white/10"
+                  >
+                    /{ep.toLowerCase()}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Features Grid */}
+        <div className="text-center mb-12">
+          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+            Built for Developers, by Developers
+          </h3>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Every feature is designed to make your development experience
+            seamless and productive.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className={`rounded-xl bg-white/5 border ${feature.border} backdrop-blur-sm p-6 transition duration-300 ${feature.hoverShadow}`}
+            >
+              <div className="flex flex-col items-center justify-center">
+                <div
+                  className={`w-12 h-12 bg-gradient-to-br ${feature.iconGradient} rounded-lg flex items-center justify-center mb-4`}
+                >
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold mb-1">{feature.title}</h4>
+                <p className="text-sm text-gray-400 text-center">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturesSection;

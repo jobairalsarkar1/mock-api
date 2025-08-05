@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Home, BookOpen, User, Code, Menu, X } from "lucide-react";
+import { Home, BookOpen, User, Menu, X, Network } from "lucide-react";
 import clsx from "clsx";
 
 const navItems = [
@@ -24,7 +24,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-orange-600">
-                <Code className="w-5 h-5 text-white" />
+                <Network className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-orange-600">
                 DataForge
@@ -94,7 +94,7 @@ export default function Navbar() {
               onClick={() => setSidebarOpen(false)}
             >
               <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-orange-600">
-                <Code className="w-5 h-5 text-white" />
+                <Network className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-orange-600">
                 DataForge
