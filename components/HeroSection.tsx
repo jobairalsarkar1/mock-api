@@ -74,7 +74,7 @@ const HeroSection = () => {
             <span className="ml-auto text-sm text-gray-400">GET Request</span>
           </div>
           <pre className="text-sm text-gray-100 text-left font-mono selection:bg-orange-500/30">
-            <CodeBlock>
+            <CodeBlock showCopy={false}>
               {dedent(`fetch('https://api.dataforge.dev/users')
   .then(res => res.json())
   .then(data => console.log(data));`)}
