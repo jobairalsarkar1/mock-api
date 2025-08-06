@@ -1,15 +1,8 @@
 "use client";
 
 import React from "react";
-import {
-  Github,
-  Mail,
-  Lock,
-  LogIn,
-  Flame,
-  ShieldCheck,
-  DatabaseZap,
-} from "lucide-react";
+import { Mail, Lock, LogIn, ShieldCheck, DatabaseZap } from "lucide-react";
+import Image from "next/image";
 
 const Page = () => {
   return (
@@ -42,7 +35,7 @@ const Page = () => {
 
       {/* Right Sign-in Form */}
       <div className="flex flex-1 justify-center items-center z-10 px-4 py-12">
-        <div className="w-full max-w-md rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-lg p-8 shadow-xl">
+        <div className="w-full max-w-md rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl p-8 shadow-xl">
           <h2 className="text-2xl font-bold mb-6 text-white text-center">
             Sign in
           </h2>
@@ -112,16 +105,18 @@ const Page = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 type="button"
-                className="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 py-2 rounded-md transition duration-200"
+                className="flex-1 flex items-center justify-center gap-2 bg-[#171515] hover:bg-black text-white py-2 rounded-md transition duration-200"
               >
-                <Flame className="w-5 h-5 text-orange-600" />
+                {/* <Flame className="w-5 h-5 text-orange-600" /> */}
+                <Image src="/google.png" alt="Google" width={20} height={20} />
                 Google
               </button>
               <button
                 type="button"
-                className="flex-1 flex items-center justify-center gap-2 bg-[#171515] hover:bg-black text-white py-2 rounded-md transition duration-200"
+                className="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-gray-300 text-gray-900 py-2 rounded-md transition duration-200"
               >
-                <Github className="w-5 h-5" />
+                {/* <Github className="w-5 h-5" /> */}
+                <Image src="/github.png" alt="Google" width={25} height={25} />
                 GitHub
               </button>
             </div>
