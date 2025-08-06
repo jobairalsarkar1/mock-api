@@ -8,6 +8,8 @@ import {
 import Link from "next/link";
 import React from "react";
 import CustomBadge from "./CustomBadge";
+import dedent from "dedent";
+import CodeBlock from "./CodeBlock";
 
 const HeroSection = () => {
   return (
@@ -72,9 +74,11 @@ const HeroSection = () => {
             <span className="ml-auto text-sm text-gray-400">GET Request</span>
           </div>
           <pre className="text-sm text-gray-100 text-left font-mono selection:bg-orange-500/30">
-            <code>{`fetch('https://api.dataforge.dev/users')
+            <CodeBlock>
+              {dedent(`fetch('https://api.dataforge.dev/users')
   .then(res => res.json())
-  .then(data => console.log(data));`}</code>
+  .then(data => console.log(data));`)}
+            </CodeBlock>
           </pre>
         </div>
 
