@@ -63,7 +63,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="pt-20 pb-8 px-6 bg-[#0e0e10] text-white relative overflow-hidden">
+    <section className="pt-16 pb-8 px-6 bg-[#0e0e10] text-white relative overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff10_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.02] z-0"></div>
 

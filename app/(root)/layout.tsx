@@ -3,9 +3,9 @@ import React from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <section className="min-h-screen">
+    <main className="min-h-screen">
       <Navbar />
       <main className="pt-16 bg-black/30">{children}</main>
-    </section>
+    </main>
   );
 }
