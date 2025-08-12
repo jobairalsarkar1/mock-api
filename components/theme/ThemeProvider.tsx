@@ -7,10 +7,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const initialTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+    // const systemPrefersDark = window.matchMedia(
+    //   "(prefers-color-scheme: dark)"
+    // ).matches;
+    // const initialTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+
+    const initialTheme = savedTheme || "dark";
 
     document.documentElement.classList.toggle("dark", initialTheme === "dark");
     setMounted(true);

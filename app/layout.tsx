@@ -35,7 +35,8 @@ export default function RootLayout({
               try {
                 const savedTheme = localStorage.getItem('theme');
                 const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+                // const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+                const initialTheme = savedTheme || 'dark';
                 document.documentElement.classList.toggle('dark', initialTheme === 'dark');
               } catch (e) {
                 console.error('Theme initialization error:', e);
