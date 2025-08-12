@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Home, BookOpen, User, Menu, X, Network } from "lucide-react";
 import clsx from "clsx";
+import ThemeToggle from "./theme/ThemeToggle";
 
 const navItems = [
   { name: "Home", path: "/", icon: <Home className="h-5 w-5" /> },
@@ -18,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="py-1 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-800 bg-white/70 dark:bg-black/40">
+      <nav className="py-0.5 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-300 dark:border-b-gray-800 bg-white/90 dark:bg-black/40">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -32,7 +33,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-10">
+            <div className="hidden md:flex items-center gap-6">
               <div className="flex items-center space-x-2">
                 {navItems.map((item, index) => (
                   <NavLink
@@ -44,6 +45,9 @@ export default function Navbar() {
                   />
                 ))}
               </div>
+              {/* Theme Toggle */}
+              <ThemeToggle />
+              {/* Get Started */}
               <Link
                 href="/"
                 className="font-semibold px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-md text-white"
@@ -52,13 +56,16 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 rounded-md text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-700/20"
-              onClick={() => setSidebarOpen(true)}
-            >
-              <Menu className="h-6 w-6" />
-            </button>
+            {/* Mobile Theme Toggle + Menu Button */}
+            <div className="flex items-center gap-2 md:hidden">
+              <ThemeToggle />
+              <button
+                className="p-2 rounded-md text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-700/20"
+                onClick={() => setSidebarOpen(true)}
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -159,7 +166,8 @@ function NavLink({
         "px-4 py-2 flex items-center space-x-2 rounded-xl font-semibold transition-colors",
         {
           "bg-orange-600/15 text-orange-600": active,
-          "text-gray-400 hover:bg-orange-600/30 hover:text-white/80": !active,
+          "text-gray-600 dark:text-gray-400 hover:bg-orange-600/30 hover:text-gray-700/80 dark:hover:text-white/80":
+            !active,
         }
       )}
     >

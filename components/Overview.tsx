@@ -68,44 +68,50 @@ const Overview = () => {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-orange-500/50 transition-colors duration-200"
+            className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 transition-colors duration-200 shadow-sm dark:shadow-none"
           >
             <div className="flex justify-between items-start">
               <stat.icon className={`w-8 h-8 ${stat.color} opacity-80`} />
-              <span className="text-xs bg-gray-800 text-green-400 px-2 py-1 rounded-full">
+              <span className="text-xs bg-gray-100 dark:bg-gray-800 text-green-600 dark:text-green-400 px-2 py-1 rounded-full">
                 {stat.change}
               </span>
             </div>
             <h3 className="text-2xl font-bold mt-3 mb-1">{stat.value}</h3>
-            <p className="text-gray-400 text-sm">{stat.label}</p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              {stat.label}
+            </p>
           </div>
         ))}
       </div>
 
-      {/* Usage by Endpoint - New Design */}
-      <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
+      {/* Usage by Endpoint */}
+      <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
         <h2 className="text-xl font-bold mb-6">Endpoint Usage</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {usageData.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-800 p-4 rounded-lg border border-gray-700 hover:border-orange-500/50 transition-colors duration-200"
+              className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-orange-500/50 transition-colors duration-200"
             >
               <div className="flex items-center justify-between mb-3">
-                <code className="font-mono text-gray-300">{item.endpoint}</code>
+                <code className="font-mono text-gray-700 dark:text-gray-300">
+                  {item.endpoint}
+                </code>
                 <span className={`w-3 h-3 rounded-full ${item.color}`}></span>
               </div>
-              <div className="text-2xl font-bold">
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">
                 {item.calls.toLocaleString()}
               </div>
-              <div className="text-sm text-gray-400">API calls</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                API calls
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Monthly Usage - Line Chart */}
-      <div className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-orange-500/50 transition-colors duration-200">
+      <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-orange-500/50 transition-colors duration-200 shadow-sm dark:shadow-none">
         <h2 className="text-xl font-bold mb-6">Monthly Request Trends</h2>
         <div className="h-80 w-full">
           <ResponsiveContainer width="100%" height="100%">
@@ -115,39 +121,39 @@ const Overview = () => {
             >
               <CartesianGrid
                 strokeDasharray="3 3"
-                stroke="#374151"
+                stroke="#E5E7EB"
                 vertical={false}
               />
               <XAxis
                 dataKey="day"
-                tick={{ fill: "#9CA3AF" }}
-                axisLine={{ stroke: "#4B5563" }}
+                tick={{ fill: "#4B5563" }}
+                axisLine={{ stroke: "#D1D5DB" }}
                 label={{
                   value: "Day of Month",
                   position: "insideBottom",
                   offset: -10,
-                  fill: "#9CA3AF",
+                  fill: "#6B7280",
                 }}
               />
               <YAxis
-                tick={{ fill: "#9CA3AF" }}
-                axisLine={{ stroke: "#4B5563" }}
+                tick={{ fill: "#4B5563" }}
+                axisLine={{ stroke: "#D1D5DB" }}
                 label={{
                   value: "Requests",
                   angle: -90,
                   position: "insideLeft",
-                  fill: "#9CA3AF",
+                  fill: "#6B7280",
                 }}
               />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "#1F2937",
-                  borderColor: "#4B5563",
+                  backgroundColor: "#FFFFFF",
+                  borderColor: "#D1D5DB",
                   borderRadius: "0.5rem",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
                 }}
-                itemStyle={{ color: "#F3F4F6" }}
-                labelStyle={{ fontWeight: "bold", color: "#F59E0B" }}
+                itemStyle={{ color: "#111827" }}
+                labelStyle={{ fontWeight: "bold", color: "#F97316" }}
                 formatter={(value) => [
                   value,
                   value === "requests" ? "Actual Requests" : "Peak Capacity",
@@ -166,12 +172,12 @@ const Overview = () => {
                 name="Actual Requests"
                 stroke="#F97316"
                 strokeWidth={3}
-                dot={{ r: 4, strokeWidth: 2, fill: "#1F2937" }}
+                dot={{ r: 4, strokeWidth: 2, fill: "#FFFFFF" }}
                 activeDot={{
                   r: 6,
                   strokeWidth: 2,
                   fill: "#F97316",
-                  stroke: "#1F2937",
+                  stroke: "#FFFFFF",
                 }}
               />
               <Line
@@ -181,12 +187,12 @@ const Overview = () => {
                 stroke="#8B5CF6"
                 strokeWidth={2}
                 strokeDasharray="5 5"
-                dot={{ r: 4, strokeWidth: 2, fill: "#1F2937" }}
+                dot={{ r: 4, strokeWidth: 2, fill: "#FFFFFF" }}
               />
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <p className="text-sm text-gray-400 mt-4">
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
           Track your API request patterns throughout the month compared to your
           peak capacity limits. Hover over data points for detailed metrics.
         </p>

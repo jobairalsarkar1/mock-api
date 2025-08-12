@@ -34,23 +34,7 @@ const CodeBlock = ({
         <button
           onClick={handleCopy}
           aria-label="Copy code"
-          style={{
-            position: "absolute",
-            top: "0.5rem",
-            right: "0.5rem",
-            backgroundColor: "#2d2d2d",
-            color: "#fff",
-            border: "none",
-            borderRadius: "0.25rem",
-            padding: "0.35rem 0.6rem",
-            cursor: "pointer",
-            zIndex: 1,
-            display: "flex",
-            alignItems: "center",
-            gap: "0.3rem",
-            fontSize: "0.75rem",
-            fontWeight: 500,
-          }}
+          className="absolute top-2 right-2 bg-[#2d2d2d] text-white border-none rounded py-[0.35rem] px-[0.6rem] cursor-pointer z-10 flex items-center gap-[0.3rem] text-xs font-medium"
         >
           {copied ? (
             <>

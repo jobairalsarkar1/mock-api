@@ -67,7 +67,7 @@ export default function DocsSidebar({
       {/* Mobile overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-20 md:hidden"
+          className="fixed inset-0 bg-gray-50 dark:bg-black/50 z-20 md:hidden"
           onClick={onClose}
         />
       )}
@@ -75,8 +75,8 @@ export default function DocsSidebar({
       {/* Sidebar */}
       <aside
         className={clsx(
-          "w-64 border-r border-gray-800 p-4 fixed top-16 bottom-0",
-          "bg-gray-950 z-30 transition-all duration-300 overflow-y-auto",
+          "w-64 border-r border-gray-300 dark:border-gray-800 p-4 fixed top-16 bottom-0",
+          "bg-gray-50 dark:bg-gray-950 z-30 transition-all duration-300 overflow-y-auto",
           {
             "left-0": isOpen,
             "-left-64": !isOpen,
@@ -87,7 +87,7 @@ export default function DocsSidebar({
         <div className="space-y-8 pt-2">
           {docsSections.map((section) => (
             <div key={section.title} className="space-y-2">
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+              <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-400 uppercase tracking-wider">
                 {section.title}
               </h3>
               <div className="space-y-1">
@@ -99,9 +99,9 @@ export default function DocsSidebar({
                     className={clsx(
                       "flex items-center gap-2 px-3 py-2 text-sm rounded-md transition-colors",
                       {
-                        "bg-gray-800 text-orange-400 font-medium":
+                        "bg-orange-100 text-orange-600 dark:bg-gray-800 dark:text-orange-400 font-medium":
                           pathname === item.href,
-                        "text-gray-300 hover:bg-gray-800/50":
+                        "text-gray-600 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-800/50":
                           pathname !== item.href,
                       }
                     )}
