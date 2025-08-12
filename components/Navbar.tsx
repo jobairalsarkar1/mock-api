@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="py-0.5 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-200 dark:border-b-gray-900 bg-white/90 dark:bg-black/40">
+      <nav className="py-0.5 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-300 dark:border-b-gray-800 bg-white/90 dark:bg-black/40">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -166,7 +166,7 @@ function NavLink({
         "px-4 py-2 flex items-center space-x-2 rounded-xl font-semibold transition-colors",
         {
           "bg-orange-600/15 text-orange-600": active,
-          "text-gray-600 dark:text-gray-400 hover:bg-orange-600/30 hover:text-gray-700/30 dark:hover:text-white/80":
+          "text-gray-600 dark:text-gray-400 hover:bg-orange-600/30 hover:text-gray-700/80 dark:hover:text-white/80":
             !active,
         }
       )}

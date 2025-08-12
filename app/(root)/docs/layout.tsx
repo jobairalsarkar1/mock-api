@@ -44,7 +44,7 @@ export default function DocsLayout({
           onClose={() => setSidebarOpen(false)}
         />
 
-        <main className="flex-1 overflow-auto md:ml-64 p-4 md:p-8">
+        <main className="flex-1 overflow-auto md:ml-64 p-4 md:p-8 bg-gray-50 dark:bg-gray-950">
           <div className="max-w-6xl mx-auto">{children}</div>
         </main>
       </div>
