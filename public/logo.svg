@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="275" height="226" viewBox="0 0 275 226" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#FA5600"/>
+      <stop offset="100%" stop-color="#FD5E00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer rounded rectangle background (centered) -->
+  <rect x="58" y="33.5" width="159" height="159" rx="34" ry="34" fill="url(#g)"/>
+
+  <!-- Centered network icon -->
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" transform="translate(-17,13.5)">
+    <!-- vertical line -->
+    <path d="M154.5 74 L154.5 100" />
+    <!-- left diagonal -->
+    <path d="M154.5 100 L122 126" />
+    <!-- right diagonal -->
+    <path d="M154.5 100 L187 126" />
+  </g>
+
+  <!-- nodes with only border, no fill -->
+  <g stroke="#ffffff" stroke-linejoin="round" stroke-width="12" fill="none" transform="translate(-17,13.5)">
+    <!-- top node -->
+    <rect x="140.5" y="45" width="28" height="28" rx="6" ry="6"/>
+    <!-- bottom-left node -->
+    <rect x="110" y="128" width="28" height="28" rx="6" ry="6"/>
+    <!-- bottom-right node -->
+    <rect x="172" y="128" width="28" height="28" rx="6" ry="6"/>
+  </g>
+</svg>
