@@ -38,17 +38,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0e0e10] text-white pt-24">
+    <footer className="bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 pt-24">
       {/* CTA Section */}
       <div className="text-center px-4">
         <CustomBadge icon={Code} text="Ready to Build?" />
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl text-gray-800 dark:text-white/90 font-bold mb-4">
           Start Building with{" "}
-          <span className="bg-gradient-to-r from-orange-200 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-orange-300 via-orange-500 to-orange-600 dark:from-orange-200 dark:via-orange-500 dark:to-orange-600 bg-clip-text text-transparent">
             DataForge Today
           </span>
         </h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-6">
+        <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-6">
           Join thousands of developers who trust DataForge for rapid prototyping
           and development.
         </p>
@@ -62,7 +62,7 @@ const Footer = () => {
           </Link>
           <Link
             href="/docs"
-            className="inline-flex items-center justify-center px-6 py-2 border border-orange-600/80 text-gray-300 text-lg rounded-lg hover:bg-orange-600/10 transition"
+            className="inline-flex items-center gap-3 px-6 py-2 border border-orange-500/80 dark:border-orange-600/80 text-gray-700 dark:text-gray-300 text-lg rounded-lg hover:bg-orange-100 dark:hover:bg-orange-600/10 transition"
           >
             View Documentation
           </Link>
@@ -80,32 +80,32 @@ const Footer = () => {
               </div>
               <span className="text-xl font-bold">DataForge</span>
             </div>
-            <p className="text-gray-400 text-sm mb-6 max-w-sm">
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 max-w-sm">
               Realistic dummy APIs for modern developers. Build faster, iterate
               quicker, and focus on what matters most.
             </p>
             <div className="flex items-center gap-4">
               <Link
                 href="#"
-                className="text-gray-400 hover:text-orange-500 transition"
+                className="text-gray-500 dark:text-gray-400 hover:text-orange-500 transition"
               >
                 <Github className="w-5 h-5" />
               </Link>
               <Link
                 href="#"
-                className="text-gray-400 hover:text-orange-500 transition"
+                className="text-gray-500 dark:text-gray-400 hover:text-orange-500 transition"
               >
                 <Twitter className="w-5 h-5" />
               </Link>
               <Link
                 href="#"
-                className="text-gray-400 hover:text-orange-500 transition"
+                className="text-gray-500 dark:text-gray-400 hover:text-orange-500 transition"
               >
                 <Linkedin className="w-5 h-5" />
               </Link>
               <Link
                 href="#"
-                className="text-gray-400 hover:text-orange-500 transition"
+                className="text-gray-500 dark:text-gray-400 hover:text-orange-500 transition"
               >
                 <Mail className="w-5 h-5" />
               </Link>
@@ -121,7 +121,7 @@ const Footer = () => {
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-orange-500 transition text-sm"
+                      className="text-gray-500 dark:text-gray-400 hover:text-orange-500 transition text-sm"
                     >
                       {link.label}
                     </Link>

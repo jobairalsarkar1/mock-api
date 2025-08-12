@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="py-0.5 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-800 bg-white/70 dark:bg-black/40">
+      <nav className="py-0.5 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-200 dark:border-b-gray-900 bg-white/90 dark:bg-black/40">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}

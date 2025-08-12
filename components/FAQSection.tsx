@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { HelpCircle, ChevronDown } from "lucide-react";
 import CustomBadge from "./CustomBadge";
 import { faqs } from "@/lib/constants";
+import SectionHeading from "./SectionHeading";
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -13,20 +14,16 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="pt-20 bg-[#0e0e10] text-white">
+    <section className="pt-20 bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <CustomBadge icon={HelpCircle} text="FAQ" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Frequently Asked{" "}
-            <span className="bg-gradient-to-r from-orange-200 via-orange-500 to-orange-600 bg-clip-text text-transparent">
-              Questions
-            </span>
-          </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Everything you need to know about DataForge APIs.
-          </p>
+          <SectionHeading
+            title="Frequently Asked"
+            highlight="Questions"
+            description="Everything you need to know about DataForge APIs."
+          />
         </div>
 
         {/* Accordion */}
@@ -64,21 +61,21 @@ const AccordionItem = ({
   }, [isOpen]);
 
   return (
-    <div className="bg-white/5 border border-white/10 rounded-lg backdrop-blur-md transition-all">
+    <div className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg backdrop-blur-md transition-all shadow-sm dark:shadow-none">
       <button
         onClick={() => toggle(index)}
-        className="w-full flex justify-between items-center px-6 py-5 text-left text-white font-semibold hover:bg-orange-600/15 transition"
+        className="w-full flex justify-between items-center px-6 py-5 text-left text-gray-800 dark:text-white font-semibold hover:bg-orange-100 dark:hover:bg-orange-600/15 transition"
       >
         {faq.question}
         <ChevronDown
-          className={`w-5 h-5 transform transition-transform duration-300 ${
+          className={`w-5 h-5 transform transition-transform duration-300 text-gray-500 dark:text-white ${
             isOpen ? "rotate-180" : ""
           }`}
         />
       </button>
       <div
         ref={contentRef}
-        className="overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-400 px-6"
+        className="overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-600 dark:text-gray-400 px-6"
         style={{ height: `${height}px` }}
       >
         <div className="py-4">{faq.answer}</div>

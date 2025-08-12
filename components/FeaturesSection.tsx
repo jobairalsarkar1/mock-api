@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import CustomBadge from "./CustomBadge";
 import { apiCategories } from "@/lib/constants";
+import SectionHeading from "./SectionHeading";
 
 const features = [
   {
@@ -63,7 +64,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="pt-16 pb-8 px-6 bg-[#0e0e10] text-white relative overflow-hidden">
+    <section className="pt-16 pb-8 px-6 bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 relative overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff10_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.02] z-0"></div>
 
@@ -71,16 +72,12 @@ const FeaturesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <CustomBadge icon={Database} text="API Categories" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Everything You Need to{" "}
-            <span className="bg-gradient-to-r from-orange-200 via-orange-500 to-orange-600 bg-clip-text text-transparent">
-              Build & Test
-            </span>
-          </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            From user management to e-commerce, our APIs cover all major use
-            cases with realistic, structured data.
-          </p>
+          <SectionHeading
+            title="Everything You Need to"
+            highlight="Build & Test"
+            description="From user management to e-commerce, our APIs cover all major use
+            cases with realistic, structured data."
+          />
         </div>
 
         {/* API Categories Grid */}
@@ -88,7 +85,7 @@ const FeaturesSection = () => {
           {apiCategories.map((cat, index) => (
             <div
               key={index}
-              className={`rounded-xl bg-white/5 border ${cat.border} backdrop-blur-sm p-6 transition duration-300 ${cat.hoverShadow}`}
+              className={`rounded-xl bg-gray-100 dark:bg-white/5 border ${cat.border} backdrop-blur-sm p-6 transition duration-300 ${cat.hoverShadow}`}
             >
               <div className="flex items-center gap-4 mb-3">
                 <div
@@ -97,15 +94,19 @@ const FeaturesSection = () => {
                   <cat.icon className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold">{cat.title}</h3>
-                  <p className="text-sm text-gray-400">{cat.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                    {cat.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {cat.description}
+                  </p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
                 {cat.endpoints.map((ep, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 rounded-full text-xs bg-white/10 text-gray-300 border border-white/10"
+                    className="px-3 py-1 rounded-full text-xs bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-white/10"
                   >
                     /{ep.toLowerCase()}
                   </span>
@@ -117,10 +118,10 @@ const FeaturesSection = () => {
 
         {/* Features Grid */}
         <div className="text-center mb-12">
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">
             Built for Developers, by Developers
           </h3>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
             Every feature is designed to make your development experience
             seamless and productive.
           </p>
@@ -130,7 +131,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`rounded-xl bg-white/5 border ${feature.border} backdrop-blur-sm p-6 transition duration-300 ${feature.hoverShadow}`}
+              className={`rounded-xl bg-gray-100 dark:bg-white/5 border ${feature.border} backdrop-blur-sm p-6 transition duration-300 ${feature.hoverShadow}`}
             >
               <div className="flex flex-col items-center justify-center">
                 <div
@@ -138,8 +139,8 @@ const FeaturesSection = () => {
                 >
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="text-lg font-semibold mb-1">{feature.title}</h4>
-                <p className="text-sm text-gray-400 text-center">
+                <h4 className="text-lg font-semibold mb-1 text-gray-800 dark:text-white">{feature.title}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
                   {feature.description}
                 </p>
               </div>
