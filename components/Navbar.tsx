@@ -6,24 +6,33 @@ import { useState } from "react";
 import { Home, BookOpen, User, Menu, X, Network } from "lucide-react";
 import clsx from "clsx";
 import ThemeToggle from "./theme/ThemeToggle";
+import { signOut, useSession } from "next-auth/react";
+import UserButton from "./user/UserButton";
 
 const navItems = [
   { name: "Home", path: "/", icon: <Home className="h-5 w-5" /> },
   { name: "Docs", path: "/docs", icon: <BookOpen className="h-5 w-5" /> },
-  { name: "Account", path: "/account", icon: <User className="h-5 w-5" /> },
+  // { name: "Account", path: "/account", icon: <User className="h-5 w-5" /> },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { data: session } = useSession();
 
   return (
     <>
-      <nav className="py-0.5 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-300 dark:border-b-gray-800 bg-white/90 dark:bg-black/40">
+      <nav className="py-0 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-300 dark:border-b-gray-800 bg-white/90 dark:bg-black/40">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link
+              href="/"
+              className={clsx(
+                "flex items-center gap-2 group transition-all duration-300 ease-in-out",
+                sidebarOpen && "opacity-40 blur-[2px]"
+              )}
+            >
               <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-orange-600">
                 <Network className="w-5 h-5 text-white" />
               </div>
@@ -44,16 +53,30 @@ export default function Navbar() {
                     active={pathname === item.path}
                   />
                 ))}
+                {session?.user && (
+                  <NavLink
+                    key="account"
+                    href="/account"
+                    icon={<User className="h-5 w-5" />}
+                    text="Account"
+                    active={pathname === "/account"}
+                    onClick={() => setSidebarOpen(false)}
+                  />
+                )}
               </div>
               {/* Theme Toggle */}
               <ThemeToggle />
-              {/* Get Started */}
-              <Link
-                href="/"
-                className="font-semibold px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-md text-white"
-              >
-                Get Started
-              </Link>
+              {/* User Button / Get Started */}
+              {session?.user ? (
+                <UserButton />
+              ) : (
+                <Link
+                  href="/sign-in"
+                  className="font-semibold px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-md text-white"
+                >
+                  Get Started
+                </Link>
+              )}
             </div>
 
             {/* Mobile Theme Toggle + Menu Button */}
@@ -73,7 +96,7 @@ export default function Navbar() {
       {/* Mobile Sidebar Overlay */}
       <div
         className={clsx(
-          "fixed inset-0 z-40 transition-opacity bg-black/50 md:hidden",
+          "fixed inset-0 z-40 transition-opacity bg-black/60 md:hidden",
           {
             "opacity-100 pointer-events-auto": sidebarOpen,
             "opacity-0 pointer-events-none": !sidebarOpen,
@@ -127,18 +150,48 @@ export default function Navbar() {
                 onClick={() => setSidebarOpen(false)}
               />
             ))}
+            {session?.user && (
+              <NavLink
+                key="account"
+                href="/account"
+                icon={<User className="h-5 w-5" />}
+                text="Account"
+                active={pathname === "/account"}
+                onClick={() => setSidebarOpen(false)}
+              />
+            )}
           </div>
+          {/* Mobile User Info */}
+          {session?.user && (
+            <div className="mt-4 p-3 mb-2 rounded-md">
+              <p className="font-medium text-gray-900 dark:text-white">
+                {session.user.name}
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                {session.user.email}
+              </p>
+              <button
+                type="submit"
+                onClick={() => signOut()}
+                className="mt-3 w-full bg-orange-600 hover:bg-orange-700 text-white py-1.5 rounded-md"
+              >
+                Sign Out
+              </button>
+            </div>
+          )}
 
-          {/* Bottom: Get Started */}
-          <div className="p-4">
-            <Link
-              href="/"
-              className="block w-full text-center font-semibold px-4 py-2 bg-orange-700 hover:bg-orange-700 rounded-md text-white"
-              onClick={() => setSidebarOpen(false)}
-            >
-              Get Started
-            </Link>
-          </div>
+          {/* Bottom: Get Started (only if logged out) */}
+          {!session?.user && (
+            <div className="p-4">
+              <Link
+                href="/sign-in"
+                className="block w-full text-center font-semibold px-4 py-2 bg-orange-700 hover:bg-orange-800 rounded-md text-white"
+                onClick={() => setSidebarOpen(false)}
+              >
+                Get Started
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </>

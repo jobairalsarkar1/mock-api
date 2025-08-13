@@ -1,8 +1,7 @@
-"use client";
-
 import React from "react";
 import { Mail, Lock, LogIn, ShieldCheck, DatabaseZap } from "lucide-react";
-import Image from "next/image";
+import SignInWithGithub from "@/components/auth-buttons/SignInWithGithub";
+import SignInWithGoogle from "@/components/auth-buttons/SignInWithGoogle";
 
 const Page = () => {
   return (
@@ -40,6 +39,7 @@ const Page = () => {
             Sign in
           </h2>
 
+          {/* Main Email/Password Form */}
           <form className="space-y-5">
             {/* Email */}
             <div>
@@ -93,34 +93,21 @@ const Page = () => {
                 Sign in
               </button>
             </div>
-
-            {/* Divider */}
-            <div className="flex items-center gap-4 my-6">
-              <div className="flex-1 h-px bg-white/10" />
-              <span className="text-sm text-gray-400">or sign in with</span>
-              <div className="flex-1 h-px bg-white/10" />
-            </div>
-
-            {/* Social Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                type="button"
-                className="flex-1 flex items-center justify-center gap-2 bg-[#171515] hover:bg-black text-white py-2 rounded-md transition duration-200"
-              >
-                {/* <Flame className="w-5 h-5 text-orange-600" /> */}
-                <Image src="/google.png" alt="Google" width={20} height={20} />
-                Google
-              </button>
-              <button
-                type="button"
-                className="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-gray-300 text-gray-900 py-2 rounded-md transition duration-200"
-              >
-                {/* <Github className="w-5 h-5" /> */}
-                <Image src="/github.png" alt="Google" width={25} height={25} />
-                GitHub
-              </button>
-            </div>
           </form>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4 my-6">
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-sm text-gray-400">or sign in with</span>
+            <div className="flex-1 h-px bg-white/10" />
+          </div>
+
+          {/* Social Login Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <SignInWithGoogle />
+
+            <SignInWithGithub />
+          </div>
         </div>
       </div>
     </div>
