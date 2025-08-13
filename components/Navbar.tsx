@@ -51,7 +51,7 @@ export default function Navbar() {
                     icon={item.icon}
                     text={item.name}
                     active={pathname === item.path}
-                    showIcon={false}
+                    showIcon={pathname === item.path && true}
                   />
                 ))}
                 {session?.user && (
