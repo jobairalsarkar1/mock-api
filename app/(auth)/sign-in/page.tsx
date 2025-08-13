@@ -40,7 +40,7 @@ const Page = () => {
           </h2>
 
           {/* Main Email/Password Form */}
-          <form className="space-y-5">
+          <form className="space-y-5 opacity-50 pointer-events-none">
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-1">

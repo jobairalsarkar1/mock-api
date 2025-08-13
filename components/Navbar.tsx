@@ -51,6 +51,7 @@ export default function Navbar() {
                     icon={item.icon}
                     text={item.name}
                     active={pathname === item.path}
+                    showIcon={pathname === item.path && true}
                   />
                 ))}
                 {session?.user && (
@@ -60,6 +61,7 @@ export default function Navbar() {
                     icon={<User className="h-5 w-5" />}
                     text="Account"
                     active={pathname === "/account"}
+                    showIcon={pathname === "/account" && true}
                     onClick={() => setSidebarOpen(false)}
                   />
                 )}
@@ -203,12 +205,14 @@ function NavLink({
   icon,
   text,
   active,
+  showIcon = true,
   onClick,
 }: {
   href: string;
   icon: React.ReactNode;
   text: string;
   active: boolean;
+  showIcon?: boolean;
   onClick?: () => void;
 }) {
   return (
@@ -224,7 +228,7 @@ function NavLink({
         }
       )}
     >
-      {icon}
+      {showIcon && icon}
       <span>{text}</span>
     </Link>
   );
