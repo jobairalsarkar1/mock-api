@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { Key, BarChart as BarChartIcon, Settings } from "lucide-react";
-import Overview from "@/components/Overview";
-import ApiKeys from "@/components/ApiKeys";
-import SettingsTab from "@/components/Settings";
+import Overview from "@/components/user/Overview";
+import ApiKeys from "@/components/user/ApiKeys";
+import SettingsTab from "@/components/user/Settings";
 
 const AccountDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");

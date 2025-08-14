@@ -6,6 +6,7 @@ import Resend from "next-auth/providers/resend"
 import { prisma } from "./lib/prisma"
 import { JWT } from "next-auth/jwt"
 import { verificationEmailTemplate } from "./lib/email-templates/verification-template"
+import { generateApiKey } from "./lib/generateAPIKey"
 
 export const config = {
   adapter: PrismaAdapter(prisma),
@@ -78,12 +79,24 @@ export const config = {
     async jwt({ token, user }: {token: JWT, user?: User}) {
       if (user) {
         token.role = user.role || 'CLIENT'
+        
+        if (!user.apiKey) {
+          const newKey = generateApiKey();
+          await prisma.user.update({
+            where: { id: user.id },
+            data: { apiKey: newKey }
+          });
+          token.apiKey = newKey;
+        } else {
+          token.apiKey = user.apiKey;
+        }
       }
       return token
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.role = token.role
+        session.user.role = token.role;
+        session.user.apiKey = token.apiKey;
       }
       return session
     },
