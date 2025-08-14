@@ -13,7 +13,7 @@ export default function SignInWithGoogle() {
     >
       <button
         type="submit"
-        className="w-full flex items-center justify-center gap-2 bg-[#171515] hover:bg-black text-white py-2 rounded-md transition duration-200 cursor-pointer"
+        className="w-full flex items-center justify-center gap-2 bg-[#201d1d] hover:bg-black text-white py-2 rounded-md transition duration-200 cursor-pointer"
       >
         <Image src="/google.png" alt="Google" width={20} height={20} />
         Google

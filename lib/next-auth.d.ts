@@ -5,7 +5,8 @@ declare module "next-auth" {
     user?: {
       role?: "ADMIN" | "HELPER" | "CLIENT";
       apiKey?: string;
-    } & DefaultSession["user"]
+    } & DefaultSession["user"];
+    apiKey?: string;
   }
 
   interface User extends DefaultUser {

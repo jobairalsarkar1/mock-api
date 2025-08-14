@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import CodeBlock from "../CodeBlock";
 import dedent from "dedent";
-import { useSession, getSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import axios from "axios";
 
 const ApiKeys = () => {
@@ -48,9 +48,7 @@ const ApiKeys = () => {
 
       setCurrentKey(data.apiKey);
 
-      // Refresh session to persist new API key
-      const refreshedSession = await getSession();
-      update(refreshedSession);
+      await update({ apiKey: data.apiKey });
 
       setShowKey(false);
       setSuccessMsg("API key regenerated successfully!");
@@ -71,7 +69,7 @@ const ApiKeys = () => {
       </h2>
 
       {/* API Key Display */}
-      <div className="bg-gray-100 dark:bg-gray-800 rounded-lg px-4 py-3 sm:px-5 sm:py-3.5 mb-6 border border-gray-200 dark:border-gray-700">
+      <div className="bg-gray-100 dark:bg-gray-950 rounded-lg px-4 py-3 sm:px-5 sm:py-3.5 mb-6 border border-gray-200 dark:border-gray-700">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3 min-w-0">
             <Key className="text-orange-500 flex-shrink-0" />
@@ -120,7 +118,7 @@ const ApiKeys = () => {
           disabled={loading}
           className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 px-4 py-2 rounded-md flex items-center gap-2 text-sm transition-colors duration-200 text-gray-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <RefreshCw className="w-4 h-4" />
+          <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
           {loading ? "Regenerating..." : "Regenerate Key"}
         </button>
 
