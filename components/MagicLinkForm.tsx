@@ -2,7 +2,14 @@
 
 import { signIn } from "next-auth/react";
 import React, { useEffect, useState } from "react";
-import { Mail, Loader2, CheckCircle2, AlertCircle, Timer, User } from "lucide-react";
+import {
+  Mail,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  Timer,
+  User,
+} from "lucide-react";
 
 const COOLDOWN_SECONDS = 30;
 
@@ -113,7 +120,7 @@ const MagicLinkForm = () => {
 
       {message && (
         <div
-          className={`p-3 rounded-md flex items-start gap-2 ${
+          className={`p-3 rounded-md flex items-start gap-2 max-w-full ${
             message.type === "success"
               ? "bg-green-900/30 text-green-400"
               : "bg-red-900/30 text-red-400"
@@ -124,7 +131,9 @@ const MagicLinkForm = () => {
           ) : (
             <AlertCircle className="h-5 w-5 mt-1 flex-shrink-0" />
           )}
-          <span>{message.text}</span>
+          <span className="min-w-0 break-words whitespace-pre-wrap">
+            {message.text}
+          </span>
         </div>
       )}
     </form>
