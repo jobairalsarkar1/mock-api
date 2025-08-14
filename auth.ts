@@ -1,12 +1,13 @@
 import { PrismaAdapter } from "@auth/prisma-adapter"
-import NextAuth, { NextAuthConfig, User } from "next-auth"
+import NextAuth, { NextAuthConfig } from "next-auth"
 import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 import Resend from "next-auth/providers/resend"
 import { prisma } from "./lib/prisma"
-import { JWT } from "next-auth/jwt"
 import { verificationEmailTemplate } from "./lib/email-templates/verification-template"
 import { generateApiKey } from "./lib/generateAPIKey"
+import { JWT } from "next-auth/jwt"
+import type { Session, User } from "next-auth";
 
 export const config = {
   adapter: PrismaAdapter(prisma),
@@ -76,20 +77,38 @@ export const config = {
   ],
   session: { strategy: 'jwt' },
   callbacks: {
-    async jwt({ token, user }: {token: JWT, user?: User}) {
+    async jwt({ 
+      token,
+      user,
+      trigger,
+      session 
+    }: { 
+      token: JWT;
+      user?: User;
+      trigger?: string;
+      session?: Session;
+    }) {
       if (user) {
-        token.role = user.role || 'CLIENT'
-        
-        if (!user.apiKey) {
+        let userFromDB = await prisma.user.findUnique({
+          where: { id: user.id },
+        });
+
+        if (userFromDB && !userFromDB.apiKey) {
           const newKey = generateApiKey();
-          await prisma.user.update({
+          userFromDB = await prisma.user.update({
             where: { id: user.id },
-            data: { apiKey: newKey }
+            data: { apiKey: newKey },
           });
-          token.apiKey = newKey;
-        } else {
-          token.apiKey = user.apiKey;
         }
+
+        
+        token.role = userFromDB?.role || 'CLIENT';
+        token.apiKey = userFromDB?.apiKey || '';
+      }
+
+      // On session update, fetch fresh data
+      if (trigger === "update" && session?.apiKey) {
+        token.apiKey = session.apiKey;
       }
       return token
     },
