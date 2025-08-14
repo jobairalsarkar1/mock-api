@@ -37,7 +37,7 @@ const Page = () => {
       <div className="flex flex-1 justify-center items-center z-10 px-4 py-12">
         <div className="w-full max-w-md rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl p-8 shadow-xl">
           <h2 className="text-2xl font-bold mb-6 text-white text-center">
-            Sign in
+            Sign In / Up
           </h2>
 
           {/* Main Email/Password Form */}
