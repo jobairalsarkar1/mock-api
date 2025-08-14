@@ -1,7 +1,8 @@
 import React from "react";
-import { Mail, Lock, LogIn, ShieldCheck, DatabaseZap } from "lucide-react";
+import { LogIn, ShieldCheck, DatabaseZap } from "lucide-react";
 import SignInWithGithub from "@/components/auth-buttons/SignInWithGithub";
 import SignInWithGoogle from "@/components/auth-buttons/SignInWithGoogle";
+import MagicLinkForm from "@/components/MagicLinkForm";
 
 const Page = () => {
   return (
@@ -40,60 +41,7 @@ const Page = () => {
           </h2>
 
           {/* Main Email/Password Form */}
-          <form className="space-y-5 opacity-50 pointer-events-none">
-            {/* Email */}
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">
-                Email
-              </label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Enter your email"
-                  className="w-full pl-10 pr-4 py-2 rounded-md bg-transparent border border-white/20 focus:outline-none focus:ring-1 focus:ring-orange-500 text-white placeholder:text-gray-400"
-                />
-              </div>
-            </div>
-
-            {/* Password */}
-            <div>
-              <div className="flex justify-between items-center mb-1">
-                <label htmlFor="password" className="text-sm font-medium">
-                  Password
-                </label>
-                <a href="#" className="text-sm text-orange-400 hover:underline">
-                  Forgot password?
-                </a>
-              </div>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Enter your password"
-                  className="w-full pl-10 pr-4 py-2 rounded-md bg-transparent border border-white/20 focus:outline-none focus:ring-1 focus:ring-orange-500 text-white placeholder:text-gray-400"
-                />
-              </div>
-            </div>
-
-            {/* Buttons */}
-            <div className="flex justify-between mt-6 space-x-4">
-              <button
-                type="button"
-                className="flex-1 bg-orange-700 hover:bg-orange-600 text-white py-2 rounded-md transition duration-200"
-              >
-                Create an account
-              </button>
-              <button
-                type="submit"
-                className="flex-1 bg-orange-600 hover:bg-orange-500 text-white font-semibold py-2 rounded-md transition duration-200"
-              >
-                Sign in
-              </button>
-            </div>
-          </form>
+          <MagicLinkForm />
 
           {/* Divider */}
           <div className="flex items-center gap-4 my-6">

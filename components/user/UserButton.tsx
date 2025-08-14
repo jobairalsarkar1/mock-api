@@ -47,7 +47,9 @@ export default function UserButton() {
             className="rounded-full border border-orange-400 dark:border-orange-600"
           />
         ) : (
-          <span className="text-sm">{logoAlternative}</span>
+          <div className="w-8 h-8 rounded-full flex items-center justify-center border-2 border-orange-500 dark:border-orange-600">
+            <span className="text-sm">{logoAlternative}</span>
+          </div>
         )}
       </button>
 
@@ -65,7 +67,7 @@ export default function UserButton() {
                 className="rounded-full"
               />
             ) : (
-              <div className="h-12 w-12 flex items-center justify-center rounded-full bg-orange-600 text-white font-bold text-lg">
+              <div className="h-10 w-10 px-2 flex items-center justify-center rounded-full bg-orange-600 text-white font-bold text-lg">
                 {logoAlternative}
               </div>
             )}
