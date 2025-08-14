@@ -19,8 +19,22 @@ export const config = {
         return identifier.toLowerCase().trim()
       },
       async sendVerificationRequest(params) {
-        const { identifier: email, provider, url } = params;
+        const { identifier: email, provider, url, request } = params;
         const host = new URL(url).host;
+
+        let name = email.split("@")[0];
+
+        if (request) {
+          try {
+            const body = await request.json();
+            if (body.name) {
+              name = body.name
+            }
+          } catch (error) {
+            console.error("Failed to parse request body: ", error)
+          }
+        }
+
         try {
           const res = await fetch("https://api.resend.com/emails", {
             method: "POST",
@@ -30,7 +44,7 @@ export const config = {
             },
             body: JSON.stringify({
               from: provider.from,
-              to: email,
+              to: name ? `${name} <${email}>` : email,
               subject: `Your Magic Link to ${host}`,
               html: verificationEmailTemplate(url, host),
               text: `Sign in to ${host}\n\nClick this link to sign in: ${url}\n\nThis link will expire in 24 hours.`,
@@ -47,7 +61,7 @@ export const config = {
             where: { email },
             create: {
               email,
-              name: email.split("@")[0],
+              name,
               role: "CLIENT",
             },
             update: {},

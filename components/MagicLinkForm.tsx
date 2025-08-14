@@ -2,18 +2,22 @@
 
 import { signIn } from "next-auth/react";
 import React, { useEffect, useState } from "react";
-import { Mail, Loader2, CheckCircle2, AlertCircle, Timer } from "lucide-react";
+import { Mail, Loader2, CheckCircle2, AlertCircle, Timer, User } from "lucide-react";
 
 const COOLDOWN_SECONDS = 30;
 
 const MagicLinkForm = () => {
-  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({ name: "", email: "" });
+  // const [email, setEmail] = useState("");
+  // const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
   const [cooldown, setCooldown] = useState(0);
   const [message, setMessage] = useState<{
     text: string;
     type: "success" | "error";
   } | null>(null);
+
+  const { name, email } = formData;
 
   useEffect(() => {
     if (cooldown > 0) {
@@ -26,12 +30,18 @@ const MagicLinkForm = () => {
     e.preventDefault();
     if (loading || cooldown > 0) return;
 
+    if (!email || !name || name.trim().length < 2) {
+      setMessage({ text: "Please enter valid name and email", type: "error" });
+      return;
+    }
+
     setLoading(true);
     setMessage(null);
 
     try {
       const result = await signIn("resend", {
         email,
+        name,
         redirect: false,
       });
 
@@ -61,11 +71,23 @@ const MagicLinkForm = () => {
   return (
     <form className="space-y-4" onSubmit={handleSubmit}>
       <div className="relative">
+        <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          placeholder="Your name"
+          required
+          className="w-full pl-10 pr-4 py-2 rounded-md bg-transparent border border-white/20 focus:outline-none focus:ring-1 focus:ring-orange-500 text-white placeholder:text-gray-400"
+        />
+      </div>
+
+      <div className="relative">
         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           placeholder="your@email.com"
           required
           className="w-full pl-10 pr-4 py-2 rounded-md bg-transparent border border-white/20 focus:outline-none focus:ring-1 focus:ring-orange-500 text-white placeholder:text-gray-400"
@@ -98,9 +120,9 @@ const MagicLinkForm = () => {
           }`}
         >
           {message.type === "success" ? (
-            <CheckCircle2 className="h-5 w-5 mt-0.5 flex-shrink-0" />
+            <CheckCircle2 className="h-5 w-5 mt-1 flex-shrink-0" />
           ) : (
-            <AlertCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
+            <AlertCircle className="h-5 w-5 mt-1 flex-shrink-0" />
           )}
           <span>{message.text}</span>
         </div>
