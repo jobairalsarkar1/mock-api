@@ -26,7 +26,7 @@ const docsSections = [
     items: [
       {
         title: "Users API",
-        href: "/docs/users",
+        href: "/docs/users-api",
         icon: <User className="w-4 h-4" />,
       },
       {
@@ -84,7 +84,7 @@ export default function DocsSidebar({
           "md:left-0"
         )}
       >
-        <div className="space-y-8 pt-2">
+        <div className="space-y-6 pt-2">
           {docsSections.map((section) => (
             <div key={section.title} className="space-y-2">
               <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-400 uppercase tracking-wider">
