@@ -35,7 +35,7 @@ const AccountDashboard = () => {
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-sm sm:text-base transition-all duration-200 border
+                      className={`px-2.5 sm:px-3 py-1.5 sm:py-1.5 rounded-xl text-sm sm:text-base transition-all duration-200 border
                         ${
                           isActive
                             ? "bg-orange-500/10 border-orange-500 text-orange-600 dark:text-orange-500"

@@ -12,7 +12,7 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
     const { id } = await context.params;
 
     const user = validation.user;
-    await logApiUsage(user.id, `/api/users/${id}`, "GET");
+    await logApiUsage(user.id, `/api/users/[id]`, "GET");
 
     const userData = await prisma.dummyUser.findUnique({ where: { id } });
     if (!userData) {

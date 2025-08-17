@@ -12,7 +12,7 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
     const { id } = await context.params;
 
     const user = validation.user;
-    await logApiUsage(user.id, `/api/products/${id}`, "GET");
+    await logApiUsage(user.id, `/api/products/[id]`, "GET");
 
     const product = await prisma.dummyProduct.findUnique({ where: { id } });
     if (!product) {
@@ -35,7 +35,7 @@ export async function PATCH(request: Request, context: { params: Promise<{ id: s
 
     const { id } = await context.params;
     const user = validation.user;
-    await logApiUsage(user.id, `/api/products/${id}`, "PATCH");
+    await logApiUsage(user.id, `/api/products/[id]`, "PATCH");
 
     const body = await request.json();
     const patchedProduct = { id, ...body, updatedAt: new Date() };
@@ -60,7 +60,7 @@ export async function DELETE(request: Request, context: { params: Promise<{ id: 
 
     const { id } = await context.params;
     const user = validation.user;
-    await logApiUsage(user.id, `/api/products/${id}`, "DELETE");
+    await logApiUsage(user.id, `/api/products/[id]`, "DELETE");
 
     return NextResponse.json({
       success: true,

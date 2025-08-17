@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { validateApiKey, logApiUsage } from "@/lib/apiKey";
+import { validateApiKey } from "@/lib/apiKey";
 
 export async function GET(request: Request) {
   try {
@@ -10,9 +10,6 @@ export async function GET(request: Request) {
     }
 
     const user = validation.user;
-
-    // Log the API usage for this call
-    await logApiUsage(user.id, "/api/api-usage", "GET");
 
     const apiUsages = await prisma.apiUsage.findMany({
       where: { userId: user.id },
