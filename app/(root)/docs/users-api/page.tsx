@@ -1,14 +1,13 @@
-"use client";
 import React from "react";
 import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
 import ApiSimulator from "@/components/ApiSimulator";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { auth } from "@/auth";
 
-const Page = () => {
-  const { data: session } = useSession();
+const Page = async () => {
+  const session = await auth();
   const apiKey = session?.user?.apiKey || null;
 
   // API endpoints with descriptions
@@ -29,7 +28,7 @@ const Page = () => {
       description: "Retrieve details of a single user by their ID.",
       example: `fetch("https://api.dataforge.dev/api/users/{id}", {
   headers: {
-    "X-API-KEY": "${apiKey ?? "your_api_key_"}"
+    "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
 })`,
     },
@@ -98,15 +97,15 @@ const Page = () => {
       <div className="flex justify-between mt-12 gap-4">
         <Link
           href="/docs/authentication"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white font-semibold text-black dark:text-white bg-transparent hover:opacity-80 transition"
+          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
         >
           <ChevronLeft className="w-5 h-5 mr-2" />
           Authentication
         </Link>
 
         <Link
-          href="/products-api"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white font-semibold text-black dark:text-white bg-transparent hover:opacity-80 transition"
+          href="/docs/products-api"
+          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
         >
           Products API
           <ChevronRight className="w-5 h-5 ml-2" />

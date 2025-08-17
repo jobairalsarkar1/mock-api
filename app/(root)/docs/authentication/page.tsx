@@ -3,8 +3,13 @@ import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ApiSimulator from "@/components/ApiSimulator";
+import { auth } from "@/auth";
 
-export default function Authentication() {
+export default async function Authentication() {
+  const session = await auth();
+  const apiKey = session?.user?.apiKey || null;
+
   return (
     <div className="prose dark:prose-invert max-w-5xl">
       <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100">
@@ -25,13 +30,27 @@ export default function Authentication() {
       <div className="mt-2">
         <CodeBlock language="javascript">
           {dedent(`
-            fetch('https://api.dataforge.dev/users', {
+            fetch('https://api.dataforge.dev/api/ping', {
               headers: {
                 'X-API-KEY': 'your_api_key'
               }
             })
           `)}
         </CodeBlock>
+
+        {/* Ping API */}
+        <h2 className="text-2xl font-semibold mt-8 text-gray-700 dark:text-gray-200">
+          Ping API
+        </h2>
+        <p className="text-gray-600 dark:text-gray-300 mb-2">
+          Test if your API key is valid and the API is working by trying the
+          Ping endpoint:
+        </p>
+
+        <ApiSimulator
+          endpoint="https://api.dataforge.dev/api/ping"
+          apiKey={apiKey}
+        />
       </div>
 
       {/* Error Handling */}
@@ -100,7 +119,7 @@ export default function Authentication() {
       <div className="flex justify-between mt-12 gap-4">
         <Link
           href="/docs"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white font-semibold text-black dark:text-white bg-transparent hover:opacity-80 transition"
+          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
         >
           <ChevronLeft className="w-5 h-5 mr-2" />
           Introduction
@@ -108,7 +127,7 @@ export default function Authentication() {
 
         <Link
           href="/docs/users-api"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white font-semibold text-black dark:text-white bg-transparent hover:opacity-80 transition"
+          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
         >
           Users API
           <ChevronRight className="w-5 h-5 ml-2" />

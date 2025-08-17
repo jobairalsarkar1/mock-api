@@ -11,13 +11,6 @@ import {
 } from "recharts";
 
 const Overview = () => {
-  const usageData = [
-    { endpoint: "/users", calls: 2543, color: "bg-blue-500" },
-    { endpoint: "/products", calls: 1876, color: "bg-green-500" },
-    { endpoint: "/posts", calls: 892, color: "bg-orange-500" },
-    { endpoint: "/analytics", calls: 341, color: "bg-purple-500" },
-  ];
-
   const dailyUsage = [
     { day: "1", requests: 450, peak: 650 },
     { day: "3", requests: 680, peak: 720 },
@@ -82,32 +75,6 @@ const Overview = () => {
             </p>
           </div>
         ))}
-      </div>
-
-      {/* Usage by Endpoint */}
-      <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800">
-        <h2 className="text-xl font-bold mb-6">Endpoint Usage</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {usageData.map((item, index) => (
-            <div
-              key={index}
-              className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-orange-500/50 transition-colors duration-200"
-            >
-              <div className="flex items-center justify-between mb-3">
-                <code className="font-mono text-gray-700 dark:text-gray-300">
-                  {item.endpoint}
-                </code>
-                <span className={`w-3 h-3 rounded-full ${item.color}`}></span>
-              </div>
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">
-                {item.calls.toLocaleString()}
-              </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                API calls
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Monthly Usage - Line Chart */}
