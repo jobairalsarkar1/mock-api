@@ -2,7 +2,7 @@ import React from "react";
 import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
 import Link from "next/link";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ChevronRight, ExternalLink } from "lucide-react";
 
 export default function Docs() {
   return (
@@ -91,10 +91,10 @@ export default function Docs() {
       <div className="flex justify-end mt-12">
         <Link
           href="/docs/authentication"
-          className="inline-flex items-center gap-2 bg-gray-900 text-white dark:bg-gray-100 dark:text-black px-5 py-2 rounded-md shadow hover:opacity-90 transition"
+          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white font-semibold text-black dark:text-white bg-transparent hover:opacity-80 transition"
         >
-          Next: Authentication
-          <ArrowRight className="h-4 w-4" />
+          Authentication
+          <ChevronRight className="w-5 h-5 ml-2" />
         </Link>
       </div>
     </div>

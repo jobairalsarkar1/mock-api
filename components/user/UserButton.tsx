@@ -45,6 +45,8 @@ export default function UserButton() {
             height={32}
             width={32}
             className="rounded-full border border-orange-400 dark:border-orange-600"
+            unoptimized={true}
+            priority={true}
           />
         ) : (
           <div className="w-8 h-8 rounded-full flex items-center justify-center border-2 border-orange-500 dark:border-orange-600">
@@ -65,6 +67,8 @@ export default function UserButton() {
                 height={48}
                 width={48}
                 className="rounded-full"
+                unoptimized={true}
+                priority={true}
               />
             ) : (
               <div className="h-10 w-10 px-2 flex items-center justify-center rounded-full bg-orange-600 text-white font-bold text-lg">

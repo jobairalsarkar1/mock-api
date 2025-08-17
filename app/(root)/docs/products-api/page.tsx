@@ -29,7 +29,7 @@ const Page = () => {
       description: "Retrieve details of a single user by their ID.",
       example: `fetch("https://api.dataforge.dev/api/users/{id}", {
   headers: {
-    "X-API-KEY": "${apiKey ?? "your_api_key_"}"
+    "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
 })`,
     },

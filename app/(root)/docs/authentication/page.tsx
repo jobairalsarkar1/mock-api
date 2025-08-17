@@ -2,6 +2,7 @@ import React from "react";
 import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
 import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Authentication() {
   return (
@@ -26,7 +27,7 @@ export default function Authentication() {
           {dedent(`
             fetch('https://api.dataforge.dev/users', {
               headers: {
-                'X-API-KEY': 'your_api_key_here'
+                'X-API-KEY': 'your_api_key'
               }
             })
           `)}
@@ -99,15 +100,18 @@ export default function Authentication() {
       <div className="flex justify-between mt-12 gap-4">
         <Link
           href="/docs"
-          className="inline-block bg-gray-900 text-white dark:bg-gray-100 dark:text-black px-5 py-2 rounded-md shadow hover:opacity-90 transition"
+          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white font-semibold text-black dark:text-white bg-transparent hover:opacity-80 transition"
         >
-          Back to Docs
+          <ChevronLeft className="w-5 h-5 mr-2" />
+          Introduction
         </Link>
+
         <Link
-          href="/users"
-          className="inline-block bg-gray-900 text-white dark:bg-gray-100 dark:text-black px-5 py-2 rounded-md shadow hover:opacity-90 transition"
+          href="/docs/users-api"
+          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white font-semibold text-black dark:text-white bg-transparent hover:opacity-80 transition"
         >
-          Go to Your API
+          Users API
+          <ChevronRight className="w-5 h-5 ml-2" />
         </Link>
       </div>
     </div>

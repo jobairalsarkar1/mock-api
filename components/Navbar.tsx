@@ -10,9 +10,9 @@ import { signOut, useSession } from "next-auth/react";
 import UserButton from "./user/UserButton";
 
 const navItems = [
-  { name: "Home", path: "/", icon: <Home className="h-5 w-5" /> },
-  { name: "Docs", path: "/docs", icon: <BookOpen className="h-5 w-5" /> },
-  // { name: "Account", path: "/account", icon: <User className="h-5 w-5" /> },
+  { name: "Home", path: "/", icon: <Home className="h-4 w-4" /> },
+  { name: "Docs", path: "/docs", icon: <BookOpen className="h-4 w-4" /> },
+  // { name: "Account", path: "/account", icon: <User className="h-4 w-4" /> },
 ];
 
 export default function Navbar() {
