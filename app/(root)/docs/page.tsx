@@ -91,7 +91,7 @@ export default function Docs() {
       <div className="flex justify-end mt-12">
         <Link
           href="/docs/authentication"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white font-semibold text-black dark:text-white bg-transparent hover:opacity-80 transition"
+          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
         >
           Authentication
           <ChevronRight className="w-5 h-5 ml-2" />
