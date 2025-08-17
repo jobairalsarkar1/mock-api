@@ -23,6 +23,8 @@ model User {
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  apiUsages     ApiUsage[]
 }
 
 enum Role {
@@ -84,4 +86,33 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
   @@id([userId, credentialID])
+}
+
+
+// Dummy Models for frontend dev
+model DummyUser {
+  id        String   @id @default(cuid())
+  name      String
+  username  String
+  email     String   @unique
+  avatar    String?
+  role      String   @default("user")
+  bio       String?
+  website   String?
+  location  String?
+  twitter   String?
+  github    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// API usage tracker per real User
+model ApiUsage {
+  id        String   @id @default(cuid())
+  userId    String
+  endpoint  String
+  method    String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

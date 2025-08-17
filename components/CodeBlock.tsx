@@ -49,6 +49,7 @@ const CodeBlock = ({
       <SyntaxHighlighter
         language={language}
         style={vscDarkPlus}
+        showLineNumbers
         customStyle={{
           margin: 0,
           borderRadius: "0.5rem",
