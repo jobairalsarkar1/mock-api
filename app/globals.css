@@ -34,6 +34,17 @@ body {
   scrollbar-color: #f97316 #0e0e10;
 }
 
+/* Hide scrollbar for Chrome, Edge, and Safari */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
 /* Not sure if I will keep them later */
 @keyframes float {
   0%,
