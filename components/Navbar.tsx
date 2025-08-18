@@ -8,6 +8,7 @@ import clsx from "clsx";
 import ThemeToggle from "./theme/ThemeToggle";
 import { signOut, useSession } from "next-auth/react";
 import UserButton from "./user/UserButton";
+import SearchBar from "./SearchBar";
 
 const navItems = [
   { name: "Home", path: "/", icon: <Home className="h-4 w-4" /> },
@@ -25,21 +26,27 @@ export default function Navbar() {
       <nav className="py-0 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-300 dark:border-b-gray-800 bg-white/90 dark:bg-black/40">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link
-              href="/"
-              className={clsx(
-                "flex items-center gap-2 group transition-all duration-300 ease-in-out",
-                sidebarOpen && "opacity-40 blur-[2px]"
-              )}
-            >
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-orange-600">
-                <Network className="w-5 h-5 text-white" />
+            {/* Logo + SearchBar */}
+            <div className="flex items-center gap-12">
+              <Link
+                href="/"
+                className={clsx(
+                  "flex items-center gap-2 group transition-all duration-300 ease-in-out",
+                  sidebarOpen && "opacity-40 blur-[2px]"
+                )}
+              >
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-orange-600">
+                  <Network className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xl font-bold text-orange-600">
+                  DataForge
+                </span>
+              </Link>
+
+              <div className="hidden md:block">
+                <SearchBar />
               </div>
-              <span className="text-xl font-bold text-orange-600">
-                DataForge
-              </span>
-            </Link>
+            </div>
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-6">
@@ -51,7 +58,7 @@ export default function Navbar() {
                     icon={item.icon}
                     text={item.name}
                     active={pathname === item.path}
-                    showIcon={pathname === item.path && true}
+                    showIcon={pathname === item.path && false}
                   />
                 ))}
                 {session?.user && (
@@ -220,7 +227,7 @@ function NavLink({
       href={href}
       onClick={onClick}
       className={clsx(
-        "px-4 py-2 flex items-center space-x-2 rounded-xl font-semibold transition-colors",
+        "px-3.5 py-1.5 flex items-center space-x-2 rounded-xl font-semibold transition-colors",
         {
           "bg-orange-600/15 text-orange-600": active,
           "text-gray-600 dark:text-gray-400 hover:bg-orange-600/30 hover:text-gray-700/80 dark:hover:text-white/80":

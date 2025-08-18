@@ -283,3 +283,18 @@ export const features = [
     iconGradient: "from-teal-500 via-teal-600 to-teal-700",
   },
 ];
+
+export const searchRoutes = [
+  { title: "/ Home", href: "/" },
+  { title: "/ Docs", href: "/docs" },
+  { title: "/ Authentication Docs", href: "/docs/authentication" },
+  { title: "/ Users API", href: "/docs/users-api" },
+  { title: "/ Products API", href: "/docs/products" },
+  { title: "/ Orders API", href: "/docs/orders" },
+  { title: "/ Cart API", href: "/docs/cart" },
+  { title: "/ Payment API", href: "/docs/payment" },
+  { title: "/ Posts API", href: "/docs/posts" },
+  { title: "/ SDKs", href: "/docs/sdks" },
+  { title: "/ Configuration", href: "/docs/configuration" },
+  { title: "/ Account", href: "/account" },
+];

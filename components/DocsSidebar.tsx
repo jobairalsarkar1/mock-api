@@ -122,9 +122,9 @@ export default function DocsSidebar({
                 {section.title}
               </h3>
               <div className="space-y-1">
-                {section.items.map((item) => (
+                {section.items.map((item, index) => (
                   <Link
-                    key={item.href}
+                    key={index}
                     href={item.href}
                     onClick={onClose}
                     className={clsx(
