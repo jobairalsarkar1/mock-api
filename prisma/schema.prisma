@@ -129,3 +129,62 @@ model DummyProduct {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
+
+model DummyOrder {
+  id             String            @id @default(cuid())
+  customerName   String
+  customerEmail  String
+  totalAmount    Float
+  status         OrderStatus       @default(PENDING)
+  shippingAddress String?
+  paymentMethod  String?
+
+  items          DummyOrderItem[]
+
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+}
+
+model DummyOrderItem {
+  id        String      @id @default(cuid())
+  orderId   String
+  name      String
+  price     Float
+  quantity  Int
+
+  order     DummyOrder  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+model DummyCart {
+  id        String      @id @default(cuid())
+  customerName  String
+  customerEmail String
+  totalAmount   Float
+  status        String    @default("pending")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  items         CartItem[]
+
+}
+
+model CartItem {
+  id        String    @id @default(cuid())
+  cartId    String
+  name      String
+  price     Float
+  quantity  Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  cart DummyCart @relation(fields: [cartId], references: [id], onDelete: Cascade)
+}
+
