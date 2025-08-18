@@ -1,4 +1,4 @@
-import { BarChart3, Clock, Code2, FileText, Globe, Shield, ShoppingCart, Users, Zap } from "lucide-react";
+import { BarChart3, ChartColumn, Clock, Code2, FileText, Globe, Shield, ShoppingCart, Users, Zap } from "lucide-react";
 
 // export const testimonials = [
 //   {
@@ -185,39 +185,51 @@ export const faqs = [
 export const apiCategories = [
   {
     title: "User Management",
-    description: "Complete user profiles, authentication, and social data",
+    description:
+      "Access detailed user data, authentication status, and social information. Ideal for monitoring user activity and integrating identity management systems.",
     icon: Users,
-    endpoints: ["Users", "Profiles", "Auth", "Social"],
+    endpoints: ["Users", "Profiles"],
     border: "border-blue-500/30",
     hoverShadow: "hover:shadow-[0_0_20px_#3b82f6aa]",
     iconGradient: "from-blue-500 via-blue-600 to-blue-700",
+    extraInfo:
+      "Provides comprehensive user profile data, authentication status, and role-based access information. Read-only access—no user creation or modification supported.",
   },
   {
     title: "E-commerce",
-    description: "Products, orders, payments, and inventory management",
+    description:
+      "Retrieve structured data on products, orders, and payments for e-commerce analysis, reporting, and inventory monitoring.",
     icon: ShoppingCart,
     endpoints: ["Products", "Orders", "Payments", "Cart"],
     border: "border-green-500/30",
     hoverShadow: "hover:shadow-[0_0_20px_#22c55e88]",
     iconGradient: "from-green-400 via-green-500 to-green-600",
+    extraInfo:
+      "Offers access to current product listings, order statuses, payment summaries, and cart data. All data is read-only and designed for analytics or external sync.",
   },
   {
     title: "Content & Media",
-    description: "Posts, comments, images, and file management",
+    description:
+      "Fetch content-related data including posts, comments, files, and media assets. Great for content consumption and media-rich integrations.",
     icon: FileText,
     endpoints: ["Posts", "Comments", "Media", "Files"],
     border: "border-purple-500/30",
     hoverShadow: "hover:shadow-[0_0_20px_#8b5cf699]",
     iconGradient: "from-purple-500 via-purple-600 to-purple-700",
+    extraInfo:
+      "Includes access to published posts, user comments, uploaded files, and image metadata. Intended for display and analysis purposes only — no write or delete capabilities.",
   },
   {
     title: "Analytics & Data",
-    description: "Charts, statistics, reports, and metrics",
-    icon: BarChart3,
-    endpoints: ["Analytics", "Reports", "Metrics", "Charts"],
+    description:
+      "Gain insights from business and platform data with access to charts, reports, metrics, and analytics endpoints.",
+    icon: ChartColumn,
+    endpoints: ["Analytics", "Reports", "Metrics"],
     border: "border-orange-500/30",
     hoverShadow: "hover:shadow-[0_0_20px_#f9731699]",
     iconGradient: "from-orange-400 via-orange-500 to-orange-600",
+    extraInfo:
+      "Delivers detailed usage statistics, performance metrics, traffic reports, and chart data. Fully read-only, built for dashboards, monitoring tools, and reporting engines.",
   },
 ];
 
@@ -270,4 +282,19 @@ export const features = [
     hoverShadow: "hover:shadow-[0_0_20px_#14b8a699]",
     iconGradient: "from-teal-500 via-teal-600 to-teal-700",
   },
+];
+
+export const searchRoutes = [
+  { title: "/ Home", href: "/" },
+  { title: "/ Docs", href: "/docs" },
+  { title: "/ Authentication Docs", href: "/docs/authentication" },
+  { title: "/ Users API", href: "/docs/users-api" },
+  { title: "/ Products API", href: "/docs/products" },
+  { title: "/ Orders API", href: "/docs/orders" },
+  { title: "/ Cart API", href: "/docs/cart" },
+  { title: "/ Payment API", href: "/docs/payment" },
+  { title: "/ Posts API", href: "/docs/posts" },
+  { title: "/ SDKs", href: "/docs/sdks" },
+  { title: "/ Configuration", href: "/docs/configuration" },
+  { title: "/ Account", href: "/account" },
 ];
