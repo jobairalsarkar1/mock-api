@@ -129,3 +129,118 @@ model DummyProduct {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }
+
+model DummyOrder {
+  id             String            @id @default(cuid())
+  customerName   String
+  customerEmail  String
+  totalAmount    Float
+  status         OrderStatus       @default(PENDING)
+  shippingAddress String?
+  paymentMethod  String?
+
+  items          DummyOrderItem[]
+
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+}
+
+model DummyOrderItem {
+  id        String      @id @default(cuid())
+  orderId   String
+  name      String
+  price     Float
+  quantity  Int
+
+  order     DummyOrder  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+model DummyCart {
+  id        String      @id @default(cuid())
+  customerName  String
+  customerEmail String
+  totalAmount   Float
+  status        String    @default("pending")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  items         CartItem[]
+
+}
+
+model CartItem {
+  id        String    @id @default(cuid())
+  cartId    String
+  name      String
+  price     Float
+  quantity  Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  cart DummyCart @relation(fields: [cartId], references: [id], onDelete: Cascade)
+}
+
+model DummyPayment {
+  id             String      @id @default(cuid())
+  customerName   String
+  customerEmail  String
+  amount         Float
+  status         PaymentStatus  @default(PENDING)
+  paymentMethod  PaymentMethod
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  items          PaymentItem[]
+}
+
+model PaymentItem {
+  id          String   @id @default(cuid())
+  paymentId   String
+  name        String
+  quantity    Int
+  price       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  payment DummyPayment @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  CARD
+  PAYPAL
+  STRIPE
+  BANK_TRANSFER
+}
+
+model DummyPost {
+  id        String      @id @default(cuid())
+  title     String
+  content   String?
+  author    String
+  tags      String[]    @default([])
+  image     String?
+  status    PostStatus  @default(PUBLISHED)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
