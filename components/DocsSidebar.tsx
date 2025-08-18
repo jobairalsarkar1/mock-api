@@ -37,7 +37,7 @@ const docsSections = [
     items: [
       {
         title: "Users API",
-        href: "/docs/users-api",
+        href: "/docs/users",
         icon: <User className="w-4 h-4" />,
       },
       {
@@ -51,18 +51,18 @@ const docsSections = [
         icon: <Boxes className="w-4 h-4" />,
       },
       {
-        title: "Cart API",
-        href: "/docs/cart",
+        title: "Carts API",
+        href: "/docs/carts",
         icon: <ShoppingCart className="w-4 h-4" />,
       },
       {
-        title: "Payment API",
-        href: "/docs/payment",
+        title: "Payments API",
+        href: "/docs/payments",
         icon: <CreditCard className="w-4 h-4" />,
       },
       {
         title: "Posts API",
-        href: "/docs/payment",
+        href: "/docs/posts",
         icon: <FileText className="w-4 h-4" />,
       },
     ],
