@@ -104,7 +104,7 @@ const Page = async () => {
         </Link>
 
         <Link
-          href="/docs/products-api"
+          href="/docs/products"
           className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
         >
           Products API

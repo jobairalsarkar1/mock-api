@@ -2,7 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Code, Database, Key, Settings, User } from "lucide-react";
+import {
+  BookOpen,
+  Boxes,
+  Code,
+  CreditCard,
+  FileText,
+  Key,
+  Package,
+  Settings,
+  ShoppingCart,
+  User,
+} from "lucide-react";
 import clsx from "clsx";
 
 const docsSections = [
@@ -32,7 +43,27 @@ const docsSections = [
       {
         title: "Products API",
         href: "/docs/products",
-        icon: <Database className="w-4 h-4" />,
+        icon: <Package className="w-4 h-4" />,
+      },
+      {
+        title: "Orders API",
+        href: "/docs/orders",
+        icon: <Boxes className="w-4 h-4" />,
+      },
+      {
+        title: "Cart API",
+        href: "/docs/cart",
+        icon: <ShoppingCart className="w-4 h-4" />,
+      },
+      {
+        title: "Payment API",
+        href: "/docs/payment",
+        icon: <CreditCard className="w-4 h-4" />,
+      },
+      {
+        title: "Posts API",
+        href: "/docs/payment",
+        icon: <FileText className="w-4 h-4" />,
       },
     ],
   },

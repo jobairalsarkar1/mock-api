@@ -126,7 +126,7 @@ export default async function Authentication() {
         </Link>
 
         <Link
-          href="/docs/users-api"
+          href="/docs/users"
           className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
         >
           Users API

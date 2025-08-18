@@ -96,7 +96,7 @@ const Page = async () => {
       {/* Navigation Buttons */}
       <div className="flex justify-between mt-12 gap-4">
         <Link
-          href="/users-api"
+          href="/docs/users"
           className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
         >
           <ChevronLeft className="w-5 h-5 mr-2" />
@@ -104,10 +104,10 @@ const Page = async () => {
         </Link>
 
         <Link
-          href="/docs/authentication"
+          href="/docs/orders"
           className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
         >
-          Authentication
+          Orders
           <ChevronRight className="w-5 h-5 ml-2" />
         </Link>
       </div>
