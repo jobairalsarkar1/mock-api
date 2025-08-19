@@ -177,7 +177,7 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className={`px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm hover:scale-105 transition ${
+                className={`px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm transition ${
                   subscribed ? "scale-105" : ""
                 }`}
               >
