@@ -65,7 +65,7 @@ export default function Navbar() {
                   <NavLink
                     key="account"
                     href="/account"
-                    icon={<User className="h-5 w-5" />}
+                    icon={<User className="h-4 w-4" />}
                     text="Account"
                     active={pathname === "/account"}
                     showIcon={pathname === "/account" && true}
@@ -163,7 +163,7 @@ export default function Navbar() {
               <NavLink
                 key="account"
                 href="/account"
-                icon={<User className="h-5 w-5" />}
+                icon={<User className="h-4 w-4" />}
                 text="Account"
                 active={pathname === "/account"}
                 onClick={() => setSidebarOpen(false)}
@@ -227,7 +227,7 @@ function NavLink({
       href={href}
       onClick={onClick}
       className={clsx(
-        "px-3.5 py-1.5 flex items-center space-x-2 rounded-xl font-semibold transition-colors",
+        "px-3.5 py-1.5 flex items-center space-x-2 rounded-xl font-medium transition-colors",
         {
           "bg-orange-600/15 text-orange-600": active,
           "text-gray-600 dark:text-gray-400 hover:bg-orange-600/30 hover:text-gray-700/80 dark:hover:text-white/80":

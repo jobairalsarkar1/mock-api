@@ -2,9 +2,8 @@ import React from "react";
 import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
 import ApiSimulator from "@/components/ApiSimulator";
-import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { auth } from "@/auth";
+import DocsNavigator from "@/components/DocsNavigator";
 
 const Page = async () => {
   const session = await auth();
@@ -24,7 +23,7 @@ const Page = async () => {
     },
     {
       title: "Get Single User",
-      path: "/api/users/cmedzujlg0000795kmx1zh1if",
+      path: "/api/users/cmehqu0ud0000796c59s7l0if",
       description: "Retrieve details of a single user by their ID.",
       example: `fetch("https://api.dataforge.dev/api/users/{id}", {
   headers: {
@@ -94,23 +93,10 @@ const Page = async () => {
       ))}
 
       {/* Navigation Buttons */}
-      <div className="flex justify-between mt-12 gap-4">
-        <Link
-          href="/docs/authentication"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
-        >
-          <ChevronLeft className="w-5 h-5 mr-2" />
-          Authentication
-        </Link>
-
-        <Link
-          href="/docs/products"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
-        >
-          Products API
-          <ChevronRight className="w-5 h-5 ml-2" />
-        </Link>
-      </div>
+      <DocsNavigator
+        prev={{ href: "/docs/authentication", label: "Authentication" }}
+        next={{ href: "/docs/products", label: "Products API" }}
+      />
     </div>
   );
 };
