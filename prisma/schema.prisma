@@ -88,6 +88,11 @@ model Authenticator {
   @@id([userId, credentialID])
 }
 
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
 
 // Dummy Models for frontend dev
 model DummyUser {
