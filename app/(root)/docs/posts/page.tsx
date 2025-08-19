@@ -2,9 +2,8 @@ import React from "react";
 import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
 import ApiSimulator from "@/components/ApiSimulator";
-import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { auth } from "@/auth";
+import DocsNavigator from "@/components/DocsNavigator";
 
 const Page = async () => {
   const session = await auth();
@@ -15,7 +14,8 @@ const Page = async () => {
     {
       title: "Get All Posts",
       path: "/api/posts",
-      description: "Retrieve a paginated list of dummy posts from the database.",
+      description:
+        "Retrieve a paginated list of dummy posts from the database.",
       example: `fetch("https://api.dataforge.dev/api/posts?limit=10&page=2", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
@@ -24,7 +24,7 @@ const Page = async () => {
     },
     {
       title: "Get Single Post",
-      path: "/api/posts/cmeg25u93000t79vsyh0hcm4k",
+      path: "/api/posts/cmehofrva001e79co52jiew5n",
       description: "Retrieve details of a single post by its ID.",
       example: `fetch("https://api.dataforge.dev/api/posts/{id}", {
   headers: {
@@ -40,8 +40,8 @@ const Page = async () => {
         Posts API
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-        Retrieve dummy post data from the database. Supports endpoints for listing
-        all posts or fetching individual post details.
+        Retrieve dummy post data from the database. Supports endpoints for
+        listing all posts or fetching individual post details.
       </p>
 
       {/* Notes */}
@@ -94,23 +94,10 @@ const Page = async () => {
       ))}
 
       {/* Navigation Buttons */}
-      <div className="flex justify-between mt-12 gap-4">
-        <Link
-          href="/docs/payments"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
-        >
-          <ChevronLeft className="w-5 h-5 mr-2" />
-          Payments API
-        </Link>
-
-        <Link
-          href="/docs/users"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
-        >
-          Something API
-          <ChevronRight className="w-5 h-5 ml-2" />
-        </Link>
-      </div>
+      <DocsNavigator
+        prev={{ href: "/docs/payments", label: "Payments API" }}
+        next={{ href: "/docs/users", label: "Users API" }}
+      />
     </div>
   );
 };

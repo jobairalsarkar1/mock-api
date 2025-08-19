@@ -40,7 +40,7 @@ export default function UserButton() {
       >
         {session.user.image ? (
           <Image
-            src={session.user.image || "https://placehold.co/32x32/png"}
+            src={session.user.image}
             alt={session.user.name || "User Avatar"}
             height={32}
             width={32}

@@ -2,9 +2,8 @@ import React from "react";
 import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
 import ApiSimulator from "@/components/ApiSimulator";
-import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { auth } from "@/auth";
+import DocsNavigator from "@/components/DocsNavigator";
 
 const Page = async () => {
   const session = await auth();
@@ -24,7 +23,7 @@ const Page = async () => {
     },
     {
       title: "Get Single Product",
-      path: "/api/products/cmeg25u93000t79vsyh0hcm4k",
+      path: "/api/products/cmehqk0te001d792o3xfefbcr",
       description: "Retrieve details of a single product by its ID.",
       example: `fetch("https://api.dataforge.dev/api/products/{id}", {
   headers: {
@@ -94,23 +93,10 @@ const Page = async () => {
       ))}
 
       {/* Navigation Buttons */}
-      <div className="flex justify-between mt-12 gap-4">
-        <Link
-          href="/docs/users"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
-        >
-          <ChevronLeft className="w-5 h-5 mr-2" />
-          Users API
-        </Link>
-
-        <Link
-          href="/docs/orders"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
-        >
-          Orders API
-          <ChevronRight className="w-5 h-5 ml-2" />
-        </Link>
-      </div>
+      <DocsNavigator
+        prev={{ href: "/docs/users", label: "Users API" }}
+        next={{ href: "/docs/orders", label: "Orders API" }}
+      />
     </div>
   );
 };
