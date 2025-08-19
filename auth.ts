@@ -45,8 +45,8 @@ export const config = {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              from: provider.from,
-              to: name ? `${name} <${email}>` : email,
+              from: `DataForge <${provider.from}>`,
+              to: email,
               subject: `Your Magic Link to ${host}`,
               html: verificationEmailTemplate(url, host),
               text: `Sign in to ${host}\n\nClick this link to sign in: ${url}\n\nThis link will expire in 24 hours.`,
