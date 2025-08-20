@@ -10,6 +10,7 @@ import {
   Code,
   Heart,
   Network,
+  Circle,
 } from "lucide-react";
 import CustomBadge from "./CustomBadge";
 import { useState } from "react";
@@ -197,9 +198,7 @@ const Footer = () => {
             <Link href="/privacy" className="hover:text-orange-500 transition">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-orange-500 transition">
-              Terms
-            </Link>
+            <Circle className="w-2 h-2 text-orange-500 fill-current" />
             <Link href="/cookies" className="hover:text-orange-500 transition">
               Cookies
             </Link>

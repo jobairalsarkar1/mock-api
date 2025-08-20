@@ -298,3 +298,47 @@ export const searchRoutes = [
   { title: "/ Configuration", href: "/docs/configuration" },
   { title: "/ Account", href: "/account" },
 ];
+
+// Cookies Policy
+export const cookieDetails = [
+  {
+    category: "Essential",
+    cookies: [
+      {
+        name: "auth-token",
+        purpose: "Authentication session (OAuth login)",
+        duration: "Session",
+      },
+      {
+        name: "csrf-token",
+        purpose: "Security protection",
+        duration: "Session",
+      },
+    ],
+  },
+  {
+    category: "Performance",
+    cookies: [
+      {
+        name: "_ga",
+        purpose: "Google Analytics tracking",
+        duration: "2 years",
+      },
+      {
+        name: "_gid",
+        purpose: "Google Analytics tracking",
+        duration: "24 hours",
+      },
+    ],
+  },
+  {
+    category: "Functional",
+    cookies: [
+      {
+        name: "theme",
+        purpose: "Stores dark/light mode preference",
+        duration: "Persistent (stored in localStorage until cleared)",
+      },
+    ],
+  },
+];
