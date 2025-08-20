@@ -15,9 +15,8 @@ import {
   ComposedChart,
 } from "recharts";
 import axios from "axios";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import { ActivityLog } from "./ActivityLog";
+import ActivityLog from "./ActivityLog";
+import OverviewSkeleton from "../loaders/OverviewSkeleton";
 
 interface ApiUsage {
   id: string;
@@ -103,39 +102,7 @@ const Overview = () => {
   ];
 
   if (loading) {
-    return (
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {[1, 2, 3].map((i) => (
-            <Skeleton
-              key={i}
-              height={120}
-              className="rounded-xl"
-              baseColor="#f3f4f6"
-              highlightColor="#e5e7eb"
-              containerClassName="dark:opacity-30"
-              enableAnimation
-            />
-          ))}
-        </div>
-        <Skeleton
-          height={400}
-          className="rounded-xl"
-          baseColor="#f3f4f6"
-          highlightColor="#e5e7eb"
-          containerClassName="dark:opacity-30"
-          enableAnimation
-        />
-        <Skeleton
-          height={400}
-          className="rounded-xl"
-          baseColor="#f3f4f6"
-          highlightColor="#e5e7eb"
-          containerClassName="dark:opacity-30"
-          enableAnimation
-        />
-      </div>
-    );
+    return <OverviewSkeleton />;
   }
 
   return (

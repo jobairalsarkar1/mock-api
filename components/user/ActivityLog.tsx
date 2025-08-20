@@ -15,7 +15,7 @@ interface ActivityLogProps {
   apiUsages: ApiUsage[];
 }
 
-export function ActivityLog({ apiUsages }: ActivityLogProps) {
+export default function ActivityLog({ apiUsages }: ActivityLogProps) {
   const [view, setView] = useState<"table" | "grid">("table");
 
   return (
