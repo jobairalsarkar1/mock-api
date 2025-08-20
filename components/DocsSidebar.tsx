@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import {
   BookOpen,
   Boxes,
-  Code,
   CreditCard,
   FileText,
   Key,
@@ -71,13 +70,8 @@ const docsSections = [
     title: "Advanced",
     items: [
       {
-        title: "SDKs",
-        href: "/docs/sdks",
-        icon: <Code className="w-4 h-4" />,
-      },
-      {
         title: "Configuration",
-        href: "/docs/configuration",
+        href: "/account",
         icon: <Settings className="w-4 h-4" />,
       },
     ],
