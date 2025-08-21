@@ -64,6 +64,11 @@ const docsSections = [
         href: "/docs/posts",
         icon: <FileText className="w-4 h-4" />,
       },
+      {
+        title: "Reviews API",
+        href: "/docs/reviews",
+        icon: <FileText className="w-4 h-4" />,
+      },
     ],
   },
   {

@@ -249,3 +249,19 @@ enum PostStatus {
   PUBLISHED
   ARCHIVED
 }
+
+model DummyReview {
+  id          String   @id @default(cuid())
+  targetType  String   // e.g. "product", "user", "service", "place"
+  targetName  String   // name of product/person/service being reviewed
+  rating      Int      // 1–5 stars
+  title       String?
+  comment     String?
+  authorName  String
+  authorEmail String?
+  verified    Boolean  @default(false)
+  likes       Int      @default(0)
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
