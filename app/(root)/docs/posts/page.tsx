@@ -96,7 +96,7 @@ const Page = async () => {
       {/* Navigation Buttons */}
       <DocsNavigator
         prev={{ href: "/docs/payments", label: "Payments API" }}
-        next={{ href: "/docs/users", label: "Users API" }}
+        next={{ href: "/docs/Comments", label: "Comments API" }}
       />
     </div>
   );

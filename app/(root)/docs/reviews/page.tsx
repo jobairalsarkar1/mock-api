@@ -85,7 +85,7 @@ const Page = async () => {
       ))}
 
       <DocsNavigator
-        prev={{ href: "/docs/posts", label: "Posts API" }}
+        prev={{ href: "/docs/comments", label: "Comments API" }}
         next={{ href: "/docs/notifications", label: "Notifications API" }}
       />
     </div>

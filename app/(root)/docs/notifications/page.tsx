@@ -84,7 +84,7 @@ const Page = async () => {
 
       <DocsNavigator
         prev={{ href: "/docs/reviews", label: "Reviews API" }}
-        next={{ href: "/docs/comments", label: "Comments API" }}
+        // next={{ href: "/docs/comments", label: "Comments API" }}
       />
     </div>
   );

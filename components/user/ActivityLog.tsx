@@ -26,7 +26,7 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
         <div className="flex space-x-2">
           <button
             onClick={() => setView("table")}
-            className={`flex items-center justify-center px-1.5 py-1 rounded-md transition-colors ${
+            className={`flex items-center justify-center px-1 py-1 rounded-md transition-colors ${
               view === "table"
                 ? "bg-orange-500 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
@@ -36,7 +36,7 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
           </button>
           <button
             onClick={() => setView("grid")}
-            className={`flex items-center justify-center px-1.5 py-1 rounded-md transition-colors ${
+            className={`flex items-center justify-center px-1 py-1 rounded-md transition-colors ${
               view === "grid"
                 ? "bg-orange-500 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"

@@ -20,6 +20,9 @@ import {
   CreditCard,
   FileText,
   Settings,
+  MessageSquare,
+  Star,
+  Bell,
 } from "lucide-react";
 import clsx from "clsx";
 import ThemeToggle from "./theme/ThemeToggle";
@@ -69,6 +72,21 @@ const docsLinks = [
     icon: <FileText className="w-4 h-4" />,
   },
   {
+    title: "Comments API",
+    href: "/docs/comments",
+    icon: <MessageSquare className="w-4 h-4" />,
+  },
+  {
+    title: "Reviews API",
+    href: "/docs/reviews",
+    icon: <Star className="w-4 h-4" />,
+  },
+  {
+    title: "Notifications API",
+    href: "/docs/notifications",
+    icon: <Bell className="w-4 h-4" />,
+  },
+  {
     title: "Configuration",
     href: "/account",
     icon: <Settings className="w-4 h-4" />,
@@ -78,7 +96,7 @@ const docsLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [docsOpen, setDocsOpen] = useState(false); // New state for mobile dropdown
+  const [docsOpen, setDocsOpen] = useState(false);
   const { data: session } = useSession();
 
   return (

@@ -3,14 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+  Bell,
   BookOpen,
   Boxes,
   CreditCard,
   FileText,
   Key,
+  MessageSquare,
   Package,
   Settings,
   ShoppingCart,
+  Star,
   User,
 } from "lucide-react";
 import clsx from "clsx";
@@ -65,19 +68,19 @@ const docsSections = [
         icon: <FileText className="w-4 h-4" />,
       },
       {
+        title: "Comments API",
+        href: "/docs/comments",
+        icon: <MessageSquare className="w-4 h-4" />,
+      },
+      {
         title: "Reviews API",
         href: "/docs/reviews",
-        icon: <FileText className="w-4 h-4" />,
+        icon: <Star className="w-4 h-4" />,
       },
       {
         title: "Notifications API",
         href: "/docs/notifications",
-        icon: <FileText className="w-4 h-4" />,
-      },
-      {
-        title: "Comments API",
-        href: "/docs/comments",
-        icon: <FileText className="w-4 h-4" />,
+        icon: <Bell className="w-4 h-4" />,
       },
     ],
   },

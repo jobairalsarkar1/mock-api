@@ -294,9 +294,16 @@ export const searchRoutes = [
   { title: "/ Cart API", href: "/docs/cart" },
   { title: "/ Payment API", href: "/docs/payment" },
   { title: "/ Posts API", href: "/docs/posts" },
-  { title: "/ SDKs", href: "/docs/sdks" },
-  { title: "/ Configuration", href: "/docs/configuration" },
+  { title: "/ Comments API", href: "/docs/comments" },
+  { title: "/ Reviews API", href: "/docs/reviews" },
+  { title: "/ Notifications API", href: "/docs/notifications" },
   { title: "/ Account", href: "/account" },
+  { title: "/ API Key", href: "/account" },
+  { title: "/ Settings", href: "/account" },
+  { title: "/ Delete Account", href: "/account" },
+  { title: "/ Contact", href: "/contact" },
+  { title: "/ Privacy", href: "/privacy" },
+  { title: "/ Cookies", href: "/cookies" },
 ];
 
 // Cookies Policy
