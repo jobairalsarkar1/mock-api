@@ -279,3 +279,20 @@ model DummyNotification {
   createdAt DateTime @default(now())
   expiresAt DateTime?
 }
+
+model DummyComment {
+  id         String   @id @default(cuid())
+  targetType String   // e.g. "post", "product", "video"
+  targetId   String
+  authorName String
+  authorEmail String?
+  content    String
+  parentId   String?
+  likes      Int       @default(0)
+  dislikes   Int       @default(0)
+  edited     Boolean   @default(false)
+  attachment String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+

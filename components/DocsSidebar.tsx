@@ -76,7 +76,7 @@ const docsSections = [
       },
       {
         title: "Comments API",
-        href: "/docs/notifications",
+        href: "/docs/comments",
         icon: <FileText className="w-4 h-4" />,
       },
     ],
