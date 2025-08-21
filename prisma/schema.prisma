@@ -265,3 +265,17 @@ model DummyReview {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model DummyNotification {
+  id        String   @id @default(cuid())
+  userName  String
+  userEmail String
+  title     String
+  message   String
+  type      String   @default("info")   // success, error, warning, info
+  priority  String   @default("normal") // low, normal, high
+  actionUrl String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  expiresAt DateTime?
+}
