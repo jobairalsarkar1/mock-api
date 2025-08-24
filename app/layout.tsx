@@ -18,7 +18,7 @@ const inter = Inter({ subsets: ["latin"] });
 // });
 
 export const metadata: Metadata = {
-  title: "DataForge",
+  title: "PlaceAPI",
   description: "Production Ready APIs for Developers.",
 };
 

@@ -153,7 +153,7 @@ const ApiKeys = () => {
         </h3>
         <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 mb-4 border border-gray-200 dark:border-gray-700">
           <CodeBlock language="javascript">
-            {dedent(`fetch('https://api.dataforge.dev/endpoint', {
+            {dedent(`fetch('https://api.placeapi.site/endpoint', {
   headers: { 'X-API-KEY': '${currentKey}' }
 })`)}
           </CodeBlock>

@@ -1,8 +1,8 @@
 import React from "react";
 import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
-import Link from "next/link";
-import { ArrowRight, ChevronRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
+import DocsNavigator from "@/components/DocsNavigator";
 
 export default function Docs() {
   return (
@@ -11,7 +11,7 @@ export default function Docs() {
         Documentation
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-300">
-        Welcome to the DataForge API documentation. This guide will help you
+        Welcome to the PlaceAPI API documentation. This guide will help you
         integrate with our services.
       </p>
 
@@ -28,7 +28,7 @@ export default function Docs() {
       <div className="mt-2">
         <CodeBlock language="javascript">
           {dedent(`
-            fetch('https://api.dataforge.dev/v1/ping', {
+            fetch('https://api.placeapi.site/v1/ping', {
               headers: {
                 'x-api-key': 'YOUR_API_KEY'
               }
@@ -73,30 +73,24 @@ export default function Docs() {
         <li>
           Email:{" "}
           <a
-            href="mailto:support@dataforge.dev"
+            href="mailto:support@placeapi.site"
             className="text-gray-800 dark:text-gray-200 underline"
           >
-            support@dataforge.dev
+            support@placeapi.site
           </a>
         </li>
-        <li>
+        {/* <li>
           Community Forum:{" "}
           <a href="#" className="text-gray-800 dark:text-gray-200 underline">
-            forum.dataforge.dev
+            forum.placeapi.site
           </a>
-        </li>
+        </li> */}
       </ul>
 
       {/* Next Page Button */}
-      <div className="flex justify-end mt-12">
-        <Link
-          href="/docs/authentication"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
-        >
-          Authentication
-          <ChevronRight className="w-5 h-5 ml-2" />
-        </Link>
-      </div>
+      <DocsNavigator
+        next={{ href: "/docs/authentication", label: "Authentication" }}
+      />
     </div>
   );
 }

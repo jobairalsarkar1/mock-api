@@ -16,7 +16,7 @@ const Page = async () => {
       path: "/api/notifications",
       description:
         "Retrieve a paginated list of dummy notifications for users.",
-      example: `fetch("https://api.dataforge.dev/api/notifications?limit=10&page=1", {
+      example: `fetch("https://api.placeapi.site/api/notifications?limit=10&page=1", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -26,7 +26,7 @@ const Page = async () => {
       title: "Get Single Notification",
       path: "/api/notifications/cmekon3et0005792s2g3ypavv",
       description: "Retrieve details of a single notification by its ID.",
-      example: `fetch("https://api.dataforge.dev/api/notifications/{id}", {
+      example: `fetch("https://api.placeapi.site/api/notifications/{id}", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -76,7 +76,7 @@ const Page = async () => {
             Try It Out
           </h3>
           <ApiSimulator
-            endpoint={`https://api.dataforge.dev${ep.path}`}
+            endpoint={`https://api.placeapi.site${ep.path}`}
             apiKey={apiKey}
           />
         </div>

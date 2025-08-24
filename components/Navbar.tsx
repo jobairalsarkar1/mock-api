@@ -117,7 +117,7 @@ export default function Navbar() {
                   <Network className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold text-orange-600">
-                  DataForge
+                  PlaceAPI
                 </span>
               </Link>
 
@@ -211,7 +211,7 @@ export default function Navbar() {
                 <Network className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-orange-600">
-                DataForge
+                PlaceAPI
               </span>
             </Link>
             <button

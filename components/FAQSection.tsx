@@ -22,7 +22,7 @@ const FAQSection = () => {
           <SectionHeading
             title="Frequently Asked"
             highlight="Questions"
-            description="Everything you need to know about DataForge APIs."
+            description="Everything you need to know about PlaceAPI APIs."
           />
         </div>
 

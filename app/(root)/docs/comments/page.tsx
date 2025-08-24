@@ -16,7 +16,7 @@ const Page = async () => {
       path: "/api/comments",
       description:
         "Retrieve a paginated list of dummy comments from the database.",
-      example: `fetch("https://api.dataforge.dev/api/comments?limit=10&page=1", {
+      example: `fetch("https://api.placeapi.site/api/comments?limit=10&page=1", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -26,7 +26,7 @@ const Page = async () => {
       title: "Get Single Comment",
       path: "/api/comments/cmekp98yc001d79gohl8yxwu3",
       description: "Retrieve details of a single comment by its ID.",
-      example: `fetch("https://api.dataforge.dev/api/comments/{id}", {
+      example: `fetch("https://api.placeapi.site/api/comments/{id}", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -51,9 +51,9 @@ const Page = async () => {
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-0 leading-relaxed">
           Comments may include <code>parentId</code> (for replies),{" "}
-          <code>likes</code>, <code>dislikes</code>, and{" "}
-          <code>attachment</code>. Use <code>limit</code> and{" "}
-          <code>page</code> query parameters for pagination.
+          <code>likes</code>, <code>dislikes</code>, and <code>attachment</code>
+          . Use <code>limit</code> and <code>page</code> query parameters for
+          pagination.
         </p>
       </div>
 
@@ -77,7 +77,7 @@ const Page = async () => {
             Try It Out
           </h3>
           <ApiSimulator
-            endpoint={`https://api.dataforge.dev${ep.path}`}
+            endpoint={`https://api.placeapi.site${ep.path}`}
             apiKey={apiKey}
           />
         </div>

@@ -16,7 +16,7 @@ const Page = async () => {
       path: "/api/posts",
       description:
         "Retrieve a paginated list of dummy posts from the database.",
-      example: `fetch("https://api.dataforge.dev/api/posts?limit=10&page=2", {
+      example: `fetch("https://api.placeapi.site/api/posts?limit=10&page=2", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -26,7 +26,7 @@ const Page = async () => {
       title: "Get Single Post",
       path: "/api/posts/cmehofrva001e79co52jiew5n",
       description: "Retrieve details of a single post by its ID.",
-      example: `fetch("https://api.dataforge.dev/api/posts/{id}", {
+      example: `fetch("https://api.placeapi.site/api/posts/{id}", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -87,7 +87,7 @@ const Page = async () => {
             Try It Out
           </h3>
           <ApiSimulator
-            endpoint={`https://api.dataforge.dev${ep.path}`}
+            endpoint={`https://api.placeapi.site${ep.path}`}
             apiKey={apiKey}
           />
         </div>
@@ -96,7 +96,7 @@ const Page = async () => {
       {/* Navigation Buttons */}
       <DocsNavigator
         prev={{ href: "/docs/payments", label: "Payments API" }}
-        next={{ href: "/docs/Comments", label: "Comments API" }}
+        next={{ href: "/docs/comments", label: "Comments API" }}
       />
     </div>
   );

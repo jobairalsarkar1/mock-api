@@ -45,7 +45,7 @@ export const config = {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              from: `DataForge <${provider.from}>`,
+              from: `PlaceAPI <${provider.from}>`,
               to: email,
               subject: `Your Magic Link to ${host}`,
               html: verificationEmailTemplate(url, host),

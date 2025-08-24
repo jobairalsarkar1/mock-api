@@ -238,7 +238,8 @@ const Page = () => {
                 {/* Detailed Cookie Table */}
                 <div className="mt-12">
                   <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center gap-2">
-                    <Clock size={20} className="text-orange-500" /> Detailed Cookie Information
+                    <Clock size={20} className="text-orange-500" /> Detailed
+                    Cookie Information
                   </h3>
                   <div className="overflow-x-auto">
                     <table className="w-full border-collapse">
@@ -359,7 +360,8 @@ const Page = () => {
 
                 <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl">
                   <h3 className="font-semibold text-lg mb-3 text-orange-800 dark:text-orange-300 flex items-center gap-2">
-                    <AlertCircle size={20} className="text-orange-500" /> Important Note
+                    <AlertCircle size={20} className="text-orange-500" />{" "}
+                    Important Note
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300">
                     Disabling essential cookies may prevent you from logging in
@@ -394,11 +396,11 @@ const Page = () => {
                     Email us at:
                   </p>
                   <a
-                    href="mailto:cookies@dataforge.dev"
+                    href="mailto:cookies@placeapi.site"
                     className="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-orange-600 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
                   >
                     <Mail size={18} />
-                    <span>cookies@dataforge.dev</span>
+                    <span>cookies@placeapi.site</span>
                   </a>
 
                   <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">

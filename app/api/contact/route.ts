@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
     await axios.post(
       "https://api.resend.com/emails",
       {
-        from: `DataForge <${senderEmail}>`,
+        from: `PlaceAPI <${senderEmail}>`,
         to: "jobairalsarkar338@gmail.com",
         subject: `Contact Form: ${subject}`,
         html: html,

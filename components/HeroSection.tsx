@@ -77,7 +77,7 @@ const HeroSection = () => {
           </div>
           <pre className="text-sm text-gray-800 dark:text-gray-100 text-left font-mono selection:bg-orange-500/30">
             <CodeBlock showCopy={false}>
-              {dedent(`fetch('https://api.dataforge.dev/users')
+              {dedent(`fetch('https://api.placeapi.site/users')
   .then(res => res.json())
   .then(data => console.log(data));`)}
             </CodeBlock>

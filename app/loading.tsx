@@ -22,7 +22,7 @@ export default function Loading() {
 
           <h1 className="text-4xl font-bold text-gray-100 mb-3">
             <span className="bg-gradient-to-r from-orange-200 to-orange-400 bg-clip-text text-transparent">
-              DataForge
+              PlaceAPI
             </span>{" "}
             Loading
           </h1>

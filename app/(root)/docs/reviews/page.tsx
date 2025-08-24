@@ -16,7 +16,7 @@ const Page = async () => {
       path: "/api/reviews",
       description:
         "Retrieve a paginated list of dummy reviews from the database.",
-      example: `fetch("https://api.dataforge.dev/api/reviews?limit=10&page=2", {
+      example: `fetch("https://api.placeapi.site/api/reviews?limit=10&page=2", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -26,7 +26,7 @@ const Page = async () => {
       title: "Get Single Review",
       path: "/api/reviews/cmeko61al000579soyl8rqene",
       description: "Retrieve details of a single review by its ID.",
-      example: `fetch("https://api.dataforge.dev/api/reviews/{id}", {
+      example: `fetch("https://api.placeapi.site/api/reviews/{id}", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -78,7 +78,7 @@ const Page = async () => {
             Try It Out
           </h3>
           <ApiSimulator
-            endpoint={`https://api.dataforge.dev${ep.path}`}
+            endpoint={`https://api.placeapi.site${ep.path}`}
             apiKey={apiKey}
           />
         </div>

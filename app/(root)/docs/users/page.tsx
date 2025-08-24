@@ -15,7 +15,7 @@ const Page = async () => {
       title: "Get All Users",
       path: "/api/users",
       description: "Retrieve a paginated list of users from the database.",
-      example: `fetch("https://api.dataforge.dev/api/users?limit=10&page=2", {
+      example: `fetch("https://api.placeapi.site/api/users?limit=10&page=2", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -25,7 +25,7 @@ const Page = async () => {
       title: "Get Single User",
       path: "/api/users/cmehqu0ud0000796c59s7l0if",
       description: "Retrieve details of a single user by their ID.",
-      example: `fetch("https://api.dataforge.dev/api/users/{id}", {
+      example: `fetch("https://api.placeapi.site/api/users/{id}", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -86,7 +86,7 @@ const Page = async () => {
             Try It Out
           </h3>
           <ApiSimulator
-            endpoint={`https://api.dataforge.dev${ep.path}`}
+            endpoint={`https://api.placeapi.site${ep.path}`}
             apiKey={apiKey}
           />
         </div>

@@ -19,7 +19,7 @@ const Page = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Welcome to{" "}
           <span className="bg-gradient-to-r from-orange-200 via-orange-500 to-orange-600 bg-clip-text text-transparent">
-            DataForge
+            PlaceAPI
           </span>
         </h2>
         <p className="text-lg text-center text-gray-400 max-w-md mx-auto md:mx-0">
