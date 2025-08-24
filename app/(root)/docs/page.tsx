@@ -3,6 +3,7 @@ import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import DocsNavigator from "@/components/DocsNavigator";
+import Link from "next/link";
 
 export default function Docs() {
   return (
@@ -46,18 +47,21 @@ export default function Docs() {
       <ul className="text-gray-600 dark:text-gray-300 space-y-2">
         <li>
           Explore the{" "}
-          <span className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 underline cursor-pointer">
+          <span className="inline-flex items-center gap-1 text-green-600 dark:text-green-400 font-semibold">
             API reference
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 text-green-500 dark:text-green-300" />
           </span>{" "}
           in the sidebar.
         </li>
         <li>
           Get your API key in your{" "}
-          <span className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 underline cursor-pointer">
+          <Link
+            href="/account"
+            className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 underline cursor-pointer"
+          >
             Account
             <ExternalLink className="h-4 w-4" />
-          </span>
+          </Link>
           . (You must be signed in to access your API key.)
         </li>
       </ul>

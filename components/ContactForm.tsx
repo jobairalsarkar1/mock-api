@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import { Loader2 } from "lucide-react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const ContactForm = () => {
 
     try {
       await axios.post("/api/contact", formData);
-      setStatus("Message sent successfully!");
+      setStatus("Message Received! We'll get back to you soon.");
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.error("Contact form error:", error);
@@ -86,9 +87,16 @@ const ContactForm = () => {
       <button
         type="submit"
         disabled={loading}
-        className="px-6 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium rounded-lg hover:scale-105 transition disabled:opacity-50"
+        className="px-6 py-2 flex items-center justify-center bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-500 font-medium rounded-lg transition disabled:opacity-50 cursor-pointer"
       >
-        {loading ? "Sending..." : "Submit"}
+        {loading ? (
+          <div className="flex items-center gap-3">
+            <Loader2 className="w-4 h-4 animate-spin" />
+            Sending...
+          </div>
+        ) : (
+          "Submit"
+        )}
       </button>
 
       {status && (
