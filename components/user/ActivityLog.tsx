@@ -53,16 +53,16 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
           <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
             <thead>
               <tr className="bg-gray-50 dark:bg-gray-800 text-left">
-                <th className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 rounded-tl-xl">
+                <th className="w-12 px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 rounded-tl-xl">
                   No.
                 </th>
-                <th className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
+                <th className="w-[65%] px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
                   Endpoint
                 </th>
-                <th className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
+                <th className="w-24 px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
                   Method
                 </th>
-                <th className="px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 rounded-tr-xl">
+                <th className="w-32 px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 rounded-tr-xl">
                   Time
                 </th>
               </tr>
@@ -73,13 +73,13 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
                   key={usage.id}
                   className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
-                  <td className="px-3 py-3 text-sm font-medium text-gray-900 dark:text-gray-100">
+                  <td className="px-3 py-2.5 text-sm font-medium text-gray-900 dark:text-gray-100">
                     {idx + 1}
                   </td>
-                  <td className="px-3 py-3 text-sm text-gray-900 dark:text-gray-100 truncate max-w-[200px] sm:max-w-xs md:max-w-md lg:max-w-lg">
+                  <td className="px-3 py-2.5 text-sm text-gray-900 dark:text-gray-100 truncate">
                     {usage.endpoint}
                   </td>
-                  <td className="px-3 py-3 whitespace-nowrap">
+                  <td className="px-3 py-2.5 whitespace-nowrap">
                     <span
                       className={`px-2 py-1 text-xs rounded-full font-semibold ${
                         usage.method === "GET"
@@ -96,7 +96,7 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
                       {usage.method}
                     </span>
                   </td>
-                  <td className="px-3 py-3 text-sm text-gray-500 dark:text-gray-400">
+                  <td className="px-3 py-2.5 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     {formatDistanceToNow(new Date(usage.createdAt), {
                       addSuffix: true,
                     })}
