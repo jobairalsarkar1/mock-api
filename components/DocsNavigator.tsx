@@ -12,7 +12,7 @@ export default function DocsNavigator({ prev, next }: DocsNavProps) {
       {prev ? (
         <Link
           href={prev.href}
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
+          className="flex items-center justify-center px-3 py-2 rounded-md border border-black dark:border-white/70 font-medium text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
         >
           <ChevronLeft className="w-5 h-5 mr-2" />
           {prev.label}
@@ -24,7 +24,7 @@ export default function DocsNavigator({ prev, next }: DocsNavProps) {
       {next ? (
         <Link
           href={next.href}
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
+          className="flex items-center justify-center px-3 py-2 rounded-md border border-black dark:border-white/70 font-medium text-black dark:text-white/70 bg-transparent hover:opacity-90 transition"
         >
           {next.label}
           <ChevronRight className="w-5 h-5 ml-2" />

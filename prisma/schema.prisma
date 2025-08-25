@@ -249,3 +249,50 @@ enum PostStatus {
   PUBLISHED
   ARCHIVED
 }
+
+model DummyReview {
+  id          String   @id @default(cuid())
+  targetType  String   // e.g. "product", "user", "service", "place"
+  targetName  String   // name of product/person/service being reviewed
+  rating      Int      // 1–5 stars
+  title       String?
+  comment     String?
+  authorName  String
+  authorEmail String?
+  verified    Boolean  @default(false)
+  likes       Int      @default(0)
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model DummyNotification {
+  id        String   @id @default(cuid())
+  userName  String
+  userEmail String
+  title     String
+  message   String
+  type      String   @default("info")   // success, error, warning, info
+  priority  String   @default("normal") // low, normal, high
+  actionUrl String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  expiresAt DateTime?
+}
+
+model DummyComment {
+  id         String   @id @default(cuid())
+  targetType String   // e.g. "post", "product", "video"
+  targetId   String
+  authorName String
+  authorEmail String?
+  content    String
+  parentId   String?
+  likes      Int       @default(0)
+  dislikes   Int       @default(0)
+  edited     Boolean   @default(false)
+  attachment String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+

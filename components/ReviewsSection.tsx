@@ -52,7 +52,7 @@ export default function ReviewsSection() {
           <SectionHeading
             title="Loved by Thousands of"
             highlight="Developers"
-            description="Join the growing community of developers who trust DataForge"
+            description="Join the growing community of developers who trust PlaceAPI"
           />
         </div>
 

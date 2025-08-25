@@ -9,24 +9,24 @@ const Page = async () => {
   const session = await auth();
   const apiKey = session?.user?.apiKey || null;
 
-  // API endpoints for carts
+  // API endpoints for reviews
   const endpoints = [
     {
-      title: "Get All Carts",
-      path: "/api/carts",
+      title: "Get All Reviews",
+      path: "/api/reviews",
       description:
-        "Retrieve a paginated list of dummy carts from the database.",
-      example: `fetch("https://api.placeapi.site/api/carts?limit=10&page=2", {
+        "Retrieve a paginated list of dummy reviews from the database.",
+      example: `fetch("https://api.placeapi.site/api/reviews?limit=10&page=2", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
 })`,
     },
     {
-      title: "Get Single Cart",
-      path: "/api/carts/cmehmxew1003i79dsm3y7y87h",
-      description: "Retrieve details of a single cart by its ID.",
-      example: `fetch("https://api.placeapi.site/api/carts/{id}", {
+      title: "Get Single Review",
+      path: "/api/reviews/cmeko61al000579soyl8rqene",
+      description: "Retrieve details of a single review by its ID.",
+      example: `fetch("https://api.placeapi.site/api/reviews/{id}", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -37,11 +37,12 @@ const Page = async () => {
   return (
     <div className="prose dark:prose-invert max-w-5xl">
       <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">
-        Carts API
+        Reviews API
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-        Retrieve dummy cart data from the database. Supports endpoints for
-        listing all carts or fetching individual cart details.
+        Retrieve dummy review data from the database. Supports endpoints for
+        listing all reviews or fetching individual review details. Reviews can
+        belong to products, users, services, or places.
       </p>
 
       {/* Notes */}
@@ -50,15 +51,9 @@ const Page = async () => {
           Notes
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-0 leading-relaxed">
-          You can control the number of carts returned using{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded font-mono text-sm">
-            limit
-          </code>{" "}
-          and navigate through pages using{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded font-mono text-sm">
-            page
-          </code>{" "}
-          query parameters.
+          Use <code>limit</code> and <code>page</code> query parameters for
+          pagination. Reviews also include optional fields like{" "}
+          <code>likes</code>, <code>verified</code>, and <code>image</code>.
         </p>
       </div>
 
@@ -74,15 +69,11 @@ const Page = async () => {
             </p>
           </div>
 
-          {/* Example usage */}
           <h3 className="text-xl font-medium mt-4 mb-2 text-gray-700 dark:text-gray-200">
             Example Request
           </h3>
-          <div className="mb-6">
-            <CodeBlock language="javascript">{dedent(ep.example)}</CodeBlock>
-          </div>
+          <CodeBlock language="javascript">{dedent(ep.example)}</CodeBlock>
 
-          {/* API Simulator */}
           <h3 className="text-xl font-medium mt-6 mb-3 text-gray-700 dark:text-gray-200">
             Try It Out
           </h3>
@@ -93,10 +84,9 @@ const Page = async () => {
         </div>
       ))}
 
-      {/* Navigation Buttons */}
       <DocsNavigator
-        prev={{ href: "/docs/orders", label: "Orders API" }}
-        next={{ href: "/docs/payments", label: "Payments API" }}
+        prev={{ href: "/docs/comments", label: "Comments API" }}
+        next={{ href: "/docs/notifications", label: "Notifications API" }}
       />
     </div>
   );

@@ -15,8 +15,8 @@ import {
   ComposedChart,
 } from "recharts";
 import axios from "axios";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import ActivityLog from "./ActivityLog";
+import OverviewSkeleton from "../loaders/OverviewSkeleton";
 
 interface ApiUsage {
   id: string;
@@ -102,43 +102,11 @@ const Overview = () => {
   ];
 
   if (loading) {
-    return (
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {[1, 2, 3].map((i) => (
-            <Skeleton
-              key={i}
-              height={120}
-              className="rounded-xl"
-              baseColor="#f3f4f6"
-              highlightColor="#e5e7eb"
-              containerClassName="dark:opacity-30"
-              enableAnimation
-            />
-          ))}
-        </div>
-        <Skeleton
-          height={400}
-          className="rounded-xl"
-          baseColor="#f3f4f6"
-          highlightColor="#e5e7eb"
-          containerClassName="dark:opacity-30"
-          enableAnimation
-        />
-        <Skeleton
-          height={400}
-          className="rounded-xl"
-          baseColor="#f3f4f6"
-          highlightColor="#e5e7eb"
-          containerClassName="dark:opacity-30"
-          enableAnimation
-        />
-      </div>
-    );
+    return <OverviewSkeleton />;
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 overflow-x-hidden">
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {stats.map((stat, index) => (
@@ -245,78 +213,7 @@ const Overview = () => {
       </div>
 
       {/* Activity Log Table */}
-      <div className="bg-white dark:bg-gray-900 rounded-xl p-4 sm:p-6 border border-gray-200 dark:border-gray-800 shadow-sm dark:shadow-none">
-        <h2 className="text-xl font-bold mb-4 sm:mb-8">Activity Log</h2>
-        <div className="overflow-x-auto">
-          <div className="min-w-full overflow-hidden">
-            <table className="w-full">
-              <thead>
-                <tr className="text-left border-b border-gray-200 dark:border-gray-700">
-                  <th className="pb-3 pl-0 pr-3 sm:pr-6 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-300">
-                    #
-                  </th>
-                  <th className="pb-3 px-3 sm:px-6 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-300">
-                    Endpoint
-                  </th>
-                  <th className="pb-3 px-3 sm:px-6 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-300">
-                    Method
-                  </th>
-                  <th className="pb-3 px-3 sm:px-6 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                    Date
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                {apiUsages.map((usage, idx) => (
-                  <tr
-                    key={usage.id}
-                    className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                  >
-                    <td className="py-3 pl-0 pr-3 sm:pr-6 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-                      {idx + 1}
-                    </td>
-                    <td className="py-3 px-3 sm:px-6 text-sm text-gray-900 dark:text-gray-100">
-                      <div className="max-w-[120px] sm:max-w-xs md:max-w-md lg:max-w-lg truncate">
-                        {usage.endpoint}
-                      </div>
-                    </td>
-                    <td className="py-3 px-3 sm:px-6 whitespace-nowrap">
-                      <span
-                        className={`px-2 py-1 text-xs rounded-full ${
-                          usage.method === "GET"
-                            ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
-                            : usage.method === "POST"
-                              ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                              : usage.method === "PUT"
-                                ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-                                : usage.method === "DELETE"
-                                  ? "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
-                                  : "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
-                        }`}
-                      >
-                        {usage.method}
-                      </span>
-                    </td>
-                    <td className="py-3 px-3 sm:px-6 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                      <div className="whitespace-nowrap">
-                        {new Date(usage.createdAt).toLocaleDateString()}
-                      </div>
-                      <div className="text-xs text-gray-400 dark:text-gray-500 sm:hidden">
-                        {new Date(usage.createdAt).toLocaleTimeString()}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        {apiUsages.length === 0 && (
-          <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-            No activity found
-          </div>
-        )}
-      </div>
+      <ActivityLog apiUsages={apiUsages} />
     </div>
   );
 };

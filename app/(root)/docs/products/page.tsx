@@ -15,7 +15,7 @@ const Page = async () => {
       title: "Get All Products",
       path: "/api/products",
       description: "Retrieve a paginated list of products from the database.",
-      example: `fetch("https://api.dataforge.dev/api/products?limit=10&page=2", {
+      example: `fetch("https://api.placeapi.site/api/products?limit=10&page=2", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -25,7 +25,7 @@ const Page = async () => {
       title: "Get Single Product",
       path: "/api/products/cmehqk0te001d792o3xfefbcr",
       description: "Retrieve details of a single product by its ID.",
-      example: `fetch("https://api.dataforge.dev/api/products/{id}", {
+      example: `fetch("https://api.placeapi.site/api/products/{id}", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -86,7 +86,7 @@ const Page = async () => {
             Try It Out
           </h3>
           <ApiSimulator
-            endpoint={`https://api.dataforge.dev${ep.path}`}
+            endpoint={`https://api.placeapi.site${ep.path}`}
             apiKey={apiKey}
           />
         </div>

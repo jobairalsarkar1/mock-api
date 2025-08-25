@@ -23,7 +23,7 @@ export default function ApiSimulator({ endpoint, apiKey }: ApiSimulatorProps) {
     setResponse(null);
 
     try {
-      const baseUrl = "https://api.dataforge.dev";
+      const baseUrl = "https://api.placeapi.site";
       const relativeEndpoint = endpoint.replace(baseUrl, "");
 
       const { data } = await axios.get(relativeEndpoint, {

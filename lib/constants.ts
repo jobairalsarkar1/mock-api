@@ -6,7 +6,7 @@ import { BarChart3, ChartColumn, Clock, Code2, FileText, Globe, Shield, Shopping
 //     role: "Frontend Developer",
 //     company: "TechStart Inc.",
 //     content:
-//       "DataForge has completely transformed how we prototype applications. The realistic data makes our demos feel authentic and helps stakeholders understand the vision immediately.",
+//       "PlaceAPI has completely transformed how we prototype applications. The realistic data makes our demos feel authentic and helps stakeholders understand the vision immediately.",
 //     rating: 5,
 //     gradient: "bg-gradient-to-br from-blue-500/20 to-cyan-500/20",
 //     glow: "shadow-[0_0_30px_rgba(59,130,246,0.2)]",
@@ -39,7 +39,7 @@ import { BarChart3, ChartColumn, Clock, Code2, FileText, Globe, Shield, Shopping
 //     role: "Backend Developer",
 //     company: "CloudTech Systems",
 //     content:
-//       "The variety of endpoints available is fantastic. Whether we need user data, e-commerce products, or social media posts, DataForge has exactly what we need.",
+//       "The variety of endpoints available is fantastic. Whether we need user data, e-commerce products, or social media posts, PlaceAPI has exactly what we need.",
 //     rating: 5,
 //     gradient: "bg-gradient-to-br from-orange-500/20 to-red-500/20",
 //     glow: "shadow-[0_0_30px_rgba(249,115,22,0.2)]",
@@ -50,7 +50,7 @@ import { BarChart3, ChartColumn, Clock, Code2, FileText, Globe, Shield, Shopping
 //     role: "Tech Lead",
 //     company: "StartupHub",
 //     content:
-//       "DataForge has become an essential part of our development workflow. The consistent data structure and reliability have significantly improved our testing process.",
+//       "PlaceAPI has become an essential part of our development workflow. The consistent data structure and reliability have significantly improved our testing process.",
 //     rating: 5,
 //     gradient: "bg-gradient-to-br from-indigo-500/20 to-purple-500/20",
 //     glow: "shadow-[0_0_30px_rgba(99,102,241,0.2)]",
@@ -61,7 +61,7 @@ import { BarChart3, ChartColumn, Clock, Code2, FileText, Globe, Shield, Shopping
 //     role: "Mobile Developer",
 //     company: "AppCraft Studios",
 //     content:
-//       "The mobile-optimized responses and fast loading times make DataForge perfect for our React Native applications. It's exactly what we needed.",
+//       "The mobile-optimized responses and fast loading times make PlaceAPI perfect for our React Native applications. It's exactly what we needed.",
 //     rating: 5,
 //     gradient: "bg-gradient-to-br from-rose-500/20 to-pink-500/20",
 //     glow: "shadow-[0_0_30px_rgba(244,63,94,0.2)]",
@@ -74,7 +74,7 @@ export const testimonials = [
     name: "Sarah Chen",
     role: "Frontend Developer",
     company: "TechStart Inc.",
-    content: "DataForge has completely transformed how we prototype applications. The realistic data makes our demos feel authentic and helps stakeholders understand the vision immediately.",
+    content: "PlaceAPI has completely transformed how we prototype applications. The realistic data makes our demos feel authentic and helps stakeholders understand the vision immediately.",
     rating: 5,
     gradient: "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-500/20 dark:to-cyan-500/20",
     glow: "shadow-[0_0_30px_rgba(59,130,246,0.2)]",
@@ -110,7 +110,7 @@ export const testimonials = [
     name: "David Kim",
     role: "Backend Developer",
     company: "CloudTech Systems",
-    content: "The variety of endpoints available is fantastic. Whether we need user data, e-commerce products, or social media posts, DataForge has exactly what we need.",
+    content: "The variety of endpoints available is fantastic. Whether we need user data, e-commerce products, or social media posts, PlaceAPI has exactly what we need.",
     rating: 5,
     gradient: "bg-gradient-to-br from-orange-50 to-red-100 dark:from-orange-500/20 dark:to-red-500/20",
     glow: "shadow-[0_0_30px_rgba(249,115,22,0.2)]",
@@ -122,7 +122,7 @@ export const testimonials = [
     name: "Lisa Wang",
     role: "Tech Lead",
     company: "StartupHub",
-    content: "DataForge has become an essential part of our development workflow. The consistent data structure and reliability have significantly improved our testing process.",
+    content: "PlaceAPI has become an essential part of our development workflow. The consistent data structure and reliability have significantly improved our testing process.",
     rating: 5,
     gradient: "bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-indigo-500/20 dark:to-purple-500/20",
     glow: "shadow-[0_0_30px_rgba(99,102,241,0.2)]",
@@ -134,7 +134,7 @@ export const testimonials = [
     name: "James Miller",
     role: "Mobile Developer",
     company: "AppCraft Studios",
-    content: "The mobile-optimized responses and fast loading times make DataForge perfect for our React Native applications. It's exactly what we needed.",
+    content: "The mobile-optimized responses and fast loading times make PlaceAPI perfect for our React Native applications. It's exactly what we needed.",
     rating: 5,
     gradient: "bg-gradient-to-br from-rose-50 to-pink-100 dark:from-rose-500/20 dark:to-pink-500/20",
     glow: "shadow-[0_0_30px_rgba(244,63,94,0.2)]",
@@ -146,7 +146,7 @@ export const testimonials = [
 
 export const faqs = [
   {
-    question: "How do I get started with DataForge?",
+    question: "How do I get started with PlaceAPI?",
     answer:
       "Simply sign up for a free account and you'll receive your API key instantly. You can start making requests immediately with our comprehensive documentation and examples.",
   },
@@ -156,9 +156,9 @@ export const faqs = [
       "Yes! Our dummy data is carefully crafted to be realistic and comprehensive. It includes proper relationships, realistic values, and follows industry standards for data structures.",
   },
   {
-    question: "Can I use DataForge in production?",
+    question: "Can I use PlaceAPI in production?",
     answer:
-      "DataForge is designed for development, testing, and prototyping. For production applications, you'll want to replace our endpoints with your actual backend APIs.",
+      "PlaceAPI is designed for development, testing, and prototyping. For production applications, you'll want to replace our endpoints with your actual backend APIs.",
   },
   {
     question: "What happens when I hit the rate limits?",
@@ -294,9 +294,16 @@ export const searchRoutes = [
   { title: "/ Cart API", href: "/docs/cart" },
   { title: "/ Payment API", href: "/docs/payment" },
   { title: "/ Posts API", href: "/docs/posts" },
-  { title: "/ SDKs", href: "/docs/sdks" },
-  { title: "/ Configuration", href: "/docs/configuration" },
+  { title: "/ Comments API", href: "/docs/comments" },
+  { title: "/ Reviews API", href: "/docs/reviews" },
+  { title: "/ Notifications API", href: "/docs/notifications" },
   { title: "/ Account", href: "/account" },
+  { title: "/ API Key", href: "/account" },
+  { title: "/ Settings", href: "/account" },
+  { title: "/ Delete Account", href: "/account" },
+  { title: "/ Contact", href: "/contact" },
+  { title: "/ Privacy", href: "/privacy" },
+  { title: "/ Cookies", href: "/cookies" },
 ];
 
 // Cookies Policy

@@ -1,10 +1,9 @@
 import React from "react";
 import CodeBlock from "@/components/CodeBlock";
 import dedent from "dedent";
-import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import ApiSimulator from "@/components/ApiSimulator";
 import { auth } from "@/auth";
+import DocsNavigator from "@/components/DocsNavigator";
 
 export default async function Authentication() {
   const session = await auth();
@@ -30,7 +29,7 @@ export default async function Authentication() {
       <div className="mt-2">
         <CodeBlock language="javascript">
           {dedent(`
-            fetch('https://api.dataforge.dev/api/ping', {
+            fetch('https://api.placeapi.site/api/ping', {
               headers: {
                 'X-API-KEY': 'your_api_key'
               }
@@ -48,7 +47,7 @@ export default async function Authentication() {
         </p>
 
         <ApiSimulator
-          endpoint="https://api.dataforge.dev/api/ping"
+          endpoint="https://api.placeapi.site/api/ping"
           apiKey={apiKey}
         />
       </div>
@@ -116,23 +115,10 @@ export default async function Authentication() {
       </ul>
 
       {/* Navigation Buttons */}
-      <div className="flex justify-between mt-12 gap-4">
-        <Link
-          href="/docs"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
-        >
-          <ChevronLeft className="w-5 h-5 mr-2" />
-          Introduction
-        </Link>
-
-        <Link
-          href="/docs/users"
-          className="flex items-center justify-center px-3 py-2 rounded-md border-2 border-black dark:border-white/70 font-semibold text-black dark:text-white/70 bg-transparent hover:opacity-80 transition"
-        >
-          Users API
-          <ChevronRight className="w-5 h-5 ml-2" />
-        </Link>
-      </div>
+      <DocsNavigator
+        prev={{ href: "/docs", label: "Introduction" }}
+        next={{ href: "/docs/users", label: "Users API" }}
+      />
     </div>
   );
 }

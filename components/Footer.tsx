@@ -60,11 +60,11 @@ const Footer = () => {
         <h2 className="text-3xl md:text-4xl text-gray-800 dark:text-white/90 font-bold mb-4">
           Start Building with{" "}
           <span className="bg-gradient-to-r from-orange-300 via-orange-500 to-orange-600 dark:from-orange-200 dark:via-orange-500 dark:to-orange-600 bg-clip-text text-transparent">
-            DataForge Today
+            PlaceAPI Today
           </span>
         </h2>
         <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-6">
-          Join thousands of developers who trust DataForge for rapid prototyping
+          Join thousands of developers who trust PlaceAPI for rapid prototyping
           and development.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
@@ -93,7 +93,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-gradient-to-tr from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
                 <Network className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold">DataForge</span>
+              <span className="text-xl font-bold">PlaceAPI</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 max-w-sm">
               Realistic dummy APIs for modern developers. Build faster, iterate
@@ -178,7 +178,7 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className={`px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm transition ${
+                className={`px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-500 text-white text-sm transition cursor-pointer ${
                   subscribed ? "scale-105" : ""
                 }`}
               >
@@ -193,7 +193,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500 text-center">
-          <p>© {currentYear} DataForge. All rights reserved.</p>
+          <p>© {currentYear} PlaceAPI. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/privacy" className="hover:text-orange-500 transition">
               Privacy

@@ -27,7 +27,7 @@ export default function DocsLayout({
                 <Menu className="w-5 h-5 text-gray-300" />
               )}
             </button>
-            <h1 className="text-xl font-bold text-gray-200">DataForge Docs</h1>
+            <h1 className="text-xl font-bold text-gray-200">PlaceAPI Docs</h1>
           </div>
           <div className="hidden md:flex items-center gap-4">
             <button className="text-sm text-gray-300 hover:text-orange-400 transition-colors">

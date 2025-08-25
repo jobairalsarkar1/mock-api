@@ -9,24 +9,24 @@ const Page = async () => {
   const session = await auth();
   const apiKey = session?.user?.apiKey || null;
 
-  // API endpoints for carts
+  // API endpoints for notifications
   const endpoints = [
     {
-      title: "Get All Carts",
-      path: "/api/carts",
+      title: "Get All Notifications",
+      path: "/api/notifications",
       description:
-        "Retrieve a paginated list of dummy carts from the database.",
-      example: `fetch("https://api.placeapi.site/api/carts?limit=10&page=2", {
+        "Retrieve a paginated list of dummy notifications for users.",
+      example: `fetch("https://api.placeapi.site/api/notifications?limit=10&page=1", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
 })`,
     },
     {
-      title: "Get Single Cart",
-      path: "/api/carts/cmehmxew1003i79dsm3y7y87h",
-      description: "Retrieve details of a single cart by its ID.",
-      example: `fetch("https://api.placeapi.site/api/carts/{id}", {
+      title: "Get Single Notification",
+      path: "/api/notifications/cmekon3et0005792s2g3ypavv",
+      description: "Retrieve details of a single notification by its ID.",
+      example: `fetch("https://api.placeapi.site/api/notifications/{id}", {
   headers: {
     "X-API-KEY": "${apiKey ?? "your_api_key"}"
   }
@@ -37,32 +37,25 @@ const Page = async () => {
   return (
     <div className="prose dark:prose-invert max-w-5xl">
       <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">
-        Carts API
+        Notifications API
       </h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-        Retrieve dummy cart data from the database. Supports endpoints for
-        listing all carts or fetching individual cart details.
+        Retrieve dummy notification data from the database. Supports endpoints
+        for listing all notifications or fetching individual notification
+        details. Notifications may include actions, types, and expiration times.
       </p>
 
-      {/* Notes */}
       <div className="bg-green-100 dark:bg-gray-800 p-4 sm:p-6 rounded-lg mb-8">
         <h2 className="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-200">
           Notes
         </h2>
         <p className="text-gray-600 dark:text-gray-300 mb-0 leading-relaxed">
-          You can control the number of carts returned using{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded font-mono text-sm">
-            limit
-          </code>{" "}
-          and navigate through pages using{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded font-mono text-sm">
-            page
-          </code>{" "}
-          query parameters.
+          Notifications can include <code>type</code> (info, success, warning,
+          error), <code>priority</code> (low, normal, high), and optional{" "}
+          <code>expiresAt</code> fields.
         </p>
       </div>
 
-      {/* List all endpoints */}
       {endpoints.map((ep, idx) => (
         <div key={idx} className="mt-8 mb-8">
           <div className="border-b border-gray-200 dark:border-gray-700 pb-3 mb-4">
@@ -74,15 +67,11 @@ const Page = async () => {
             </p>
           </div>
 
-          {/* Example usage */}
           <h3 className="text-xl font-medium mt-4 mb-2 text-gray-700 dark:text-gray-200">
             Example Request
           </h3>
-          <div className="mb-6">
-            <CodeBlock language="javascript">{dedent(ep.example)}</CodeBlock>
-          </div>
+          <CodeBlock language="javascript">{dedent(ep.example)}</CodeBlock>
 
-          {/* API Simulator */}
           <h3 className="text-xl font-medium mt-6 mb-3 text-gray-700 dark:text-gray-200">
             Try It Out
           </h3>
@@ -93,10 +82,9 @@ const Page = async () => {
         </div>
       ))}
 
-      {/* Navigation Buttons */}
       <DocsNavigator
-        prev={{ href: "/docs/orders", label: "Orders API" }}
-        next={{ href: "/docs/payments", label: "Payments API" }}
+        prev={{ href: "/docs/reviews", label: "Reviews API" }}
+        // next={{ href: "/docs/comments", label: "Comments API" }}
       />
     </div>
   );

@@ -444,11 +444,11 @@ const Page = () => {
                     Email us at:
                   </p>
                   <a
-                    href="mailto:privacy@dataforge.dev"
+                    href="mailto:privacy@placeapi.site"
                     className="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-orange-600 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
                   >
                     <Mail size={18} />
-                    <span>privacy@dataforge.dev</span>
+                    <span>privacy@placeapi.site</span>
                   </a>
 
                   {/* <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">

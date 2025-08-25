@@ -5,9 +5,9 @@ import Google from "next-auth/providers/google"
 import Resend from "next-auth/providers/resend"
 import { prisma } from "./lib/prisma"
 import { verificationEmailTemplate } from "./lib/email-templates/verification-template"
-import { generateApiKey } from "./lib/generateAPIKey"
 import { JWT } from "next-auth/jwt"
 import type { Session, User } from "next-auth";
+import { generateUniqueApiKey } from "./lib/generateUniqueApiKey"
 
 export const config = {
   adapter: PrismaAdapter(prisma),
@@ -45,7 +45,7 @@ export const config = {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              from: `DataForge <${provider.from}>`,
+              from: `PlaceAPI <${provider.from}>`,
               to: email,
               subject: `Your Magic Link to ${host}`,
               html: verificationEmailTemplate(url, host),
@@ -94,7 +94,7 @@ export const config = {
         });
 
         if (userFromDB && !userFromDB.apiKey) {
-          const newKey = generateApiKey();
+          const newKey = await generateUniqueApiKey();
           userFromDB = await prisma.user.update({
             where: { id: user.id },
             data: { apiKey: newKey },

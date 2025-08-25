@@ -3,22 +3,100 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Home, BookOpen, User, Menu, X, Network } from "lucide-react";
+import {
+  Home,
+  BookOpen,
+  User,
+  Menu,
+  X,
+  Network,
+  ChevronDown,
+  ChevronUp,
+  Key,
+  Users,
+  Package,
+  Boxes,
+  ShoppingCart,
+  CreditCard,
+  FileText,
+  Settings,
+  MessageSquare,
+  Star,
+  Bell,
+} from "lucide-react";
 import clsx from "clsx";
 import ThemeToggle from "./theme/ThemeToggle";
 import { signOut, useSession } from "next-auth/react";
 import UserButton from "./user/UserButton";
 import SearchBar from "./SearchBar";
 
-const navItems = [
-  { name: "Home", path: "/", icon: <Home className="h-4 w-4" /> },
-  { name: "Docs", path: "/docs", icon: <BookOpen className="h-4 w-4" /> },
-  // { name: "Account", path: "/account", icon: <User className="h-4 w-4" /> },
+const docsLinks = [
+  {
+    title: "Introduction",
+    href: "/docs",
+    icon: <BookOpen className="w-4 h-4" />,
+  },
+  {
+    title: "Authentication",
+    href: "/docs/authentication",
+    icon: <Key className="w-4 h-4" />,
+  },
+  {
+    title: "Users API",
+    href: "/docs/users",
+    icon: <Users className="w-4 h-4" />,
+  },
+  {
+    title: "Products API",
+    href: "/docs/products",
+    icon: <Package className="w-4 h-4" />,
+  },
+  {
+    title: "Orders API",
+    href: "/docs/orders",
+    icon: <Boxes className="w-4 h-4" />,
+  },
+  {
+    title: "Carts API",
+    href: "/docs/carts",
+    icon: <ShoppingCart className="w-4 h-4" />,
+  },
+  {
+    title: "Payments API",
+    href: "/docs/payments",
+    icon: <CreditCard className="w-4 h-4" />,
+  },
+  {
+    title: "Posts API",
+    href: "/docs/posts",
+    icon: <FileText className="w-4 h-4" />,
+  },
+  {
+    title: "Comments API",
+    href: "/docs/comments",
+    icon: <MessageSquare className="w-4 h-4" />,
+  },
+  {
+    title: "Reviews API",
+    href: "/docs/reviews",
+    icon: <Star className="w-4 h-4" />,
+  },
+  {
+    title: "Notifications API",
+    href: "/docs/notifications",
+    icon: <Bell className="w-4 h-4" />,
+  },
+  {
+    title: "Configuration",
+    href: "/account",
+    icon: <Settings className="w-4 h-4" />,
+  },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [docsOpen, setDocsOpen] = useState(false);
   const { data: session } = useSession();
 
   return (
@@ -39,7 +117,7 @@ export default function Navbar() {
                   <Network className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold text-orange-600">
-                  DataForge
+                  PlaceAPI
                 </span>
               </Link>
 
@@ -51,31 +129,28 @@ export default function Navbar() {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-6">
               <div className="flex items-center space-x-2">
-                {navItems.map((item, index) => (
-                  <NavLink
-                    key={index}
-                    href={item.path}
-                    icon={item.icon}
-                    text={item.name}
-                    active={pathname === item.path}
-                    showIcon={pathname === item.path && false}
-                  />
-                ))}
+                <NavLink
+                  href="/"
+                  icon={<Home className="h-4 w-4" />}
+                  text="Home"
+                  active={pathname === "/"}
+                />
+                <NavLink
+                  href="/docs"
+                  icon={<BookOpen className="h-4 w-4" />}
+                  text="Docs"
+                  active={pathname.startsWith("/docs")}
+                />
                 {session?.user && (
                   <NavLink
-                    key="account"
                     href="/account"
                     icon={<User className="h-4 w-4" />}
                     text="Account"
                     active={pathname === "/account"}
-                    showIcon={pathname === "/account" && true}
-                    onClick={() => setSidebarOpen(false)}
                   />
                 )}
               </div>
-              {/* Theme Toggle */}
               <ThemeToggle />
-              {/* User Button / Get Started */}
               {session?.user ? (
                 <UserButton />
               ) : (
@@ -136,7 +211,7 @@ export default function Navbar() {
                 <Network className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-orange-600">
-                DataForge
+                PlaceAPI
               </span>
             </Link>
             <button
@@ -148,20 +223,58 @@ export default function Navbar() {
           </div>
 
           {/* Middle: Nav Links */}
-          <div className="flex-1 flex flex-col space-y-1 p-4">
-            {navItems.map((item, index) => (
-              <NavLink
-                key={index}
-                href={item.path}
-                icon={item.icon}
-                text={item.name}
-                active={pathname === item.path}
-                onClick={() => setSidebarOpen(false)}
-              />
-            ))}
+          <div className="flex-1 flex flex-col space-y-1 p-4 overflow-y-scroll">
+            <NavLink
+              href="/"
+              icon={<Home className="h-4 w-4" />}
+              text="Home"
+              active={pathname === "/"}
+              onClick={() => setSidebarOpen(false)}
+            />
+
+            {/* Docs Dropdown */}
+            <div className="flex flex-col">
+              <button
+                onClick={() => setDocsOpen(!docsOpen)}
+                className="flex items-center justify-between w-full px-3 py-2 text-gray-600 dark:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50"
+              >
+                <span className="flex items-center gap-2">
+                  <BookOpen className="w-4 h-4" />
+                  Docs
+                </span>
+                {docsOpen ? (
+                  <ChevronUp className="w-5 h-5 transform transition-transform" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 transform transition-transform" />
+                )}
+              </button>
+              {docsOpen && (
+                <div className="flex flex-col pl-6 mt-1 space-y-1">
+                  {docsLinks.map((link, index) => (
+                    <Link
+                      key={index}
+                      href={link.href}
+                      onClick={() => {
+                        setSidebarOpen(false);
+                        setDocsOpen(false);
+                      }}
+                      className={clsx(
+                        "flex items-center gap-2 px-3 py-2 text-sm rounded-md transition-colors",
+                        pathname === link.href
+                          ? "bg-orange-100 text-orange-600 font-medium dark:bg-gray-800 dark:text-orange-400"
+                          : "text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800/50"
+                      )}
+                    >
+                      {link.icon}
+                      {link.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {session?.user && (
               <NavLink
-                key="account"
                 href="/account"
                 icon={<User className="h-4 w-4" />}
                 text="Account"
@@ -170,8 +283,9 @@ export default function Navbar() {
               />
             )}
           </div>
-          {/* Mobile User Info */}
-          {session?.user && (
+
+          {/* Mobile User Info / Get Started */}
+          {session?.user ? (
             <div className="mt-4 p-3 mb-2 rounded-md">
               <p className="font-medium text-gray-900 dark:text-white">
                 {session.user.name}
@@ -187,10 +301,7 @@ export default function Navbar() {
                 Sign Out
               </button>
             </div>
-          )}
-
-          {/* Bottom: Get Started (only if logged out) */}
-          {!session?.user && (
+          ) : (
             <div className="p-4">
               <Link
                 href="/sign-in"
@@ -212,14 +323,12 @@ function NavLink({
   icon,
   text,
   active,
-  showIcon = true,
   onClick,
 }: {
   href: string;
   icon: React.ReactNode;
   text: string;
   active: boolean;
-  showIcon?: boolean;
   onClick?: () => void;
 }) {
   return (
@@ -228,14 +337,12 @@ function NavLink({
       onClick={onClick}
       className={clsx(
         "px-3.5 py-1.5 flex items-center space-x-2 rounded-xl font-medium transition-colors",
-        {
-          "bg-orange-600/15 text-orange-600": active,
-          "text-gray-600 dark:text-gray-400 hover:bg-orange-600/30 hover:text-gray-700/80 dark:hover:text-white/80":
-            !active,
-        }
+        active
+          ? "bg-orange-600/15 text-orange-600"
+          : "text-gray-600 dark:text-gray-400 hover:bg-orange-600/30 hover:text-gray-700/80 dark:hover:text-white/80"
       )}
     >
-      {showIcon && icon}
+      {icon}
       <span>{text}</span>
     </Link>
   );
