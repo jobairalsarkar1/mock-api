@@ -28,8 +28,8 @@ const ApiKeys = () => {
   }, [session?.user?.apiKey]);
 
   const maskedKey = currentKey
-    ? `df_live_${"*".repeat(currentKey.length - 8)}`
-    : "df_live_********";
+    ? `pa_live_${"*".repeat(currentKey.length - 8)}`
+    : "pa_live_********";
 
   const copyApiKey = () => {
     if (!currentKey) return;

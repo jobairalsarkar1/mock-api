@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { generateApiKey } from "@/lib/generateAPIKey";
+import { generateUniqueApiKey } from "@/lib/generateUniqueApiKey";
 
 export async function POST() {
   try {
@@ -11,7 +11,7 @@ export async function POST() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const newKey = generateApiKey();
+    const newKey = await generateUniqueApiKey();
 
     await prisma.user.update({
       where: { email: session.user.email },
