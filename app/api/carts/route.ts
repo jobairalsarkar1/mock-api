@@ -25,7 +25,17 @@ export async function GET(request: Request) {
 
     await logApiUsage(validation.user.id, '/api/cart', 'GET');
 
-    return NextResponse.json({ success: true, data: carts, page, limit, total_carts: totalCarts });
+    return NextResponse.json({ 
+      success: true, 
+      data: carts, 
+      page, 
+      limit, 
+      total_carts: totalCarts, 
+      hasMore: offset + carts.length < totalCarts,
+      nextPage: offset + carts.length < totalCarts ? page + 1 : null,
+      prevPage: page > 1 ? page - 1 : null, 
+    });
+    
   } catch (error) {
     console.error(error);
     return NextResponse.json({ success: false, error: 'Failed to fetch carts' }, { status: 500 });

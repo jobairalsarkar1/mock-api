@@ -58,7 +58,7 @@ export default function ApiSimulator({ endpoint, apiKey }: ApiSimulatorProps) {
         <button
           onClick={handleTryIt}
           disabled={!apiKey || loading}
-          className="bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 text-sm font-medium shadow-sm transition-all w-full sm:w-auto"
+          className="bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 text-sm font-medium shadow-sm transition-all w-full sm:w-auto cursor-pointer"
         >
           {loading ? (
             <>

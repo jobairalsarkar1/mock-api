@@ -26,7 +26,17 @@ export async function GET(request: Request) {
 
     const totalPayments = await prisma.dummyPayment.count();
 
-    return NextResponse.json({ success: true, data: payments, page, limit, total_payments: totalPayments });
+    return NextResponse.json({ 
+      success: true, 
+      data: payments, 
+      page, 
+      limit, 
+      total_payments: totalPayments, 
+      hasMore: offset + payments.length < totalPayments,
+      nextPage: offset + payments.length < totalPayments ? page + 1 : null,
+      prevPage: page > 1 ? page - 1 : null, 
+    });
+
   } catch (error) {
     console.error(error);
     return NextResponse.json({ success: false, error: "Failed to fetch payments" }, { status: 500 });

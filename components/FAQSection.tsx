@@ -64,7 +64,7 @@ const AccordionItem = ({
     <div className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg backdrop-blur-md transition-all shadow-sm dark:shadow-none">
       <button
         onClick={() => toggle(index)}
-        className="w-full flex justify-between items-center px-6 py-5 text-left text-gray-800 dark:text-white font-semibold hover:bg-orange-100 dark:hover:bg-orange-600/15 transition"
+        className="w-full flex justify-between items-center px-6 py-5 text-left text-lg text-gray-800 dark:text-white font-semibold hover:bg-orange-100 dark:hover:bg-orange-600/15 transition"
       >
         {faq.question}
         <ChevronDown
@@ -75,7 +75,7 @@ const AccordionItem = ({
       </button>
       <div
         ref={contentRef}
-        className="overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-600 dark:text-gray-400 px-6"
+        className="overflow-hidden transition-all duration-300 ease-in-out text-base text-gray-600 dark:text-gray-400 px-6"
         style={{ height: `${height}px` }}
       >
         <div className="py-4">{faq.answer}</div>

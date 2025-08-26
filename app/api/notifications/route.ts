@@ -34,7 +34,11 @@ export async function GET(request: Request) {
       page,
       limit,
       total_notifications: totalNotifications,
+      hasMore: offset + notifications.length < totalNotifications,
+      nextPage: offset + notifications.length < totalNotifications ? page + 1 : null,
+      prevPage: page > 1 ? page - 1 : null, 
     });
+
   } catch (error) {
     console.error(error);
     return NextResponse.json(
