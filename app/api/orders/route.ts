@@ -26,7 +26,17 @@ export async function GET(request: Request) {
 
     const totalOrders = await prisma.dummyOrder.count();
 
-    return NextResponse.json({ success: true, data: orders, page, limit, total_orders: totalOrders });
+    return NextResponse.json({ 
+      success: true, 
+      data: orders, 
+      page, 
+      limit, 
+      total_orders: totalOrders, 
+      hasMore: offset + orders.length < totalOrders,
+      nextPage: offset + orders.length < totalOrders ? page + 1 : null,
+      prevPage: page > 1 ? page - 1 : null,
+    });
+
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Failed to fetch orders' }, { status: 500 });

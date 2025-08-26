@@ -34,7 +34,11 @@ export async function GET(request: Request) {
       page,
       limit,
       total_reviews: totalReviews,
+      hasMore: offset + reviews.length < totalReviews,
+      nextPage: offset + reviews.length < totalReviews ? page + 1 : null,
+      prevPage: page > 1 ? page - 1 : null, 
     });
+    
   } catch (error) {
     console.error(error);
     return NextResponse.json(

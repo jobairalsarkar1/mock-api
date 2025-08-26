@@ -25,7 +25,16 @@ export async function GET(request: Request) {
 
     const totalUsers = await prisma.dummyUser.count();
 
-    return NextResponse.json({ success: true, data: users, page, limit, total_users: totalUsers});
+    return NextResponse.json({ 
+      success: true, 
+      data: users, 
+      page, limit, 
+      total_users: totalUsers, 
+      hasMore: offset + users.length < totalUsers,
+      nextPage: offset + users.length < totalUsers ? page + 1 : null,
+      prevPage: page > 1 ? page - 1 : null, 
+    });
+    
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Failed to fetch users' }, { status: 500 });
