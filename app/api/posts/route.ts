@@ -1,3 +1,7 @@
+// Enable Edge Runtime + Shared CDN Caching
+export const runtime = 'edge';
+export const dynamic = 'force-static';
+
 import { prisma } from "@/lib/prisma";
 import { validateApiKey, logApiUsage } from "@/lib/apiKey";
 import { NextResponse } from "next/server";
