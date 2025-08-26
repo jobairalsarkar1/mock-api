@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { formatDistanceToNow } from "date-fns";
-import { Grid, List } from "lucide-react";
+import { LayoutGrid, LayoutList } from "lucide-react";
 
 export interface ApiUsage {
   id: string;
@@ -32,7 +32,7 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
             } transition-colors`}
           >
-            <List className="w-5 h-5" />
+            <LayoutList className="w-5 h-5" />
           </button>
           <button
             onClick={() => setView("grid")}
@@ -42,7 +42,7 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
             } transition-colors`}
           >
-            <Grid className="w-5 h-5" />
+            <LayoutGrid className="w-5 h-5" />
           </button>
         </div>
       </div>
