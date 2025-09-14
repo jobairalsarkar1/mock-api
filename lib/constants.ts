@@ -160,11 +160,11 @@ export const faqs = [
     answer:
       "PlaceAPI is designed for development, testing, and prototyping. For production applications, you'll want to replace our endpoints with your actual backend APIs.",
   },
-  {
-    question: "What happens when I hit the rate limits?",
-    answer:
-      "When you reach your plan's rate limit, requests will return a 429 status code. You can upgrade your plan for higher limits or wait for the limit to reset.",
-  },
+  // {
+  //   question: "What happens when I hit the rate limits?",
+  //   answer:
+  //     "When you reach your plan's rate limit, requests will return a 429 status code. You can upgrade your plan for higher limits or wait for the limit to reset.",
+  // },
   //   {
   //     question: "Do you offer custom data structures?",
   //     answer:
@@ -190,7 +190,7 @@ export const apiCategories = [
     icon: Users,
     endpoints: ["Users", "Profiles"],
     border: "border-blue-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#3b82f6aa]",
+    hoverShadow: "hover:shadow-[0_0_10px_#3b82f6aa]",
     iconGradient: "from-blue-500 via-blue-600 to-blue-700",
     extraInfo:
       "Provides comprehensive user profile data, authentication status, and role-based access information. Read-only access—no user creation or modification supported.",
@@ -202,7 +202,7 @@ export const apiCategories = [
     icon: ShoppingCart,
     endpoints: ["Products", "Orders", "Payments", "Cart"],
     border: "border-green-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#22c55e88]",
+    hoverShadow: "hover:shadow-[0_0_10px_#22c55e88]",
     iconGradient: "from-green-400 via-green-500 to-green-600",
     extraInfo:
       "Offers access to current product listings, order statuses, payment summaries, and cart data. All data is read-only and designed for analytics or external sync.",
@@ -214,7 +214,7 @@ export const apiCategories = [
     icon: FileText,
     endpoints: ["Posts", "Comments", "Media", "Files"],
     border: "border-purple-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#8b5cf699]",
+    hoverShadow: "hover:shadow-[0_0_10px_#8b5cf699]",
     iconGradient: "from-purple-500 via-purple-600 to-purple-700",
     extraInfo:
       "Includes access to published posts, user comments, uploaded files, and image metadata. Intended for display and analysis purposes only — no write or delete capabilities.",
@@ -226,7 +226,7 @@ export const apiCategories = [
     icon: ChartColumn,
     endpoints: ["Analytics", "Reports", "Metrics"],
     border: "border-orange-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#f9731699]",
+    hoverShadow: "hover:shadow-[0_0_10px_#f9731699]",
     iconGradient: "from-orange-400 via-orange-500 to-orange-600",
     extraInfo:
       "Delivers detailed usage statistics, performance metrics, traffic reports, and chart data. Fully read-only, built for dashboards, monitoring tools, and reporting engines.",
@@ -239,7 +239,7 @@ export const features = [
     description: "Global CDN ensures sub-100ms response times worldwide",
     icon: Zap,
     border: "border-yellow-400/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#facc1599]",
+    hoverShadow: "hover:shadow-[0_0_10px_#facc1599]",
     iconGradient: "from-yellow-400 via-yellow-500 to-yellow-600",
   },
   {
@@ -247,7 +247,7 @@ export const features = [
     description: "99.9% uptime with enterprise-grade infrastructure",
     icon: Shield,
     border: "border-pink-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#ec489999]",
+    hoverShadow: "hover:shadow-[0_0_10px_#ec489999]",
     iconGradient: "from-pink-500 via-fuchsia-500 to-rose-500",
   },
   {
@@ -255,7 +255,7 @@ export const features = [
     description: "Detailed insights into your API consumption and patterns",
     icon: BarChart3,
     border: "border-orange-400/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#fb923c99]",
+    hoverShadow: "hover:shadow-[0_0_10px_#fb923c99]",
     iconGradient: "from-orange-500 via-orange-600 to-orange-700",
   },
   {
@@ -263,7 +263,7 @@ export const features = [
     description: "Fresh data every hour with realistic variations",
     icon: Clock,
     border: "border-indigo-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#6366f199]",
+    hoverShadow: "hover:shadow-[0_0_10px_#6366f199]",
     iconGradient: "from-indigo-500 via-indigo-600 to-indigo-700",
   },
   {
@@ -271,7 +271,7 @@ export const features = [
     description: "CORS enabled, accessible from any domain or app",
     icon: Globe,
     border: "border-cyan-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#06b6d499]",
+    hoverShadow: "hover:shadow-[0_0_10px_#06b6d499]",
     iconGradient: "from-cyan-500 via-blue-500 to-blue-600",
   },
   {
@@ -279,7 +279,7 @@ export const features = [
     description: "JSON, XML, CSV - choose your preferred data format",
     icon: Code2,
     border: "border-teal-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#14b8a699]",
+    hoverShadow: "hover:shadow-[0_0_10px_#14b8a699]",
     iconGradient: "from-teal-500 via-teal-600 to-teal-700",
   },
 ];
