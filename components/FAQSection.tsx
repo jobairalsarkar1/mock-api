@@ -61,15 +61,24 @@ const AccordionItem = ({
   }, [isOpen]);
 
   return (
-    <div className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg backdrop-blur-md transition-all shadow-sm dark:shadow-none">
+    <div
+      className={`bg-gray-50 dark:bg-white/5 border rounded-lg backdrop-blur-md transition-all shadow-sm dark:shadow-none ${
+        isOpen
+          ? "border-orange-500 dark:border-orange-500"
+          : "border-gray-200 dark:border-white/10"
+      }`}
+    >
       <button
         onClick={() => toggle(index)}
-        className="w-full flex justify-between items-center px-6 py-5 text-left text-lg text-gray-800 dark:text-white font-semibold hover:bg-orange-100 dark:hover:bg-orange-600/15 transition"
+        className="w-full flex justify-between items-center px-6 py-5 text-left text-lg font-semibold transition group cursor-pointer"
       >
-        {faq.question}
+        {/* {faq.question} */}
+        <span className="text-gray-800 dark:text-white/85 group-hover:text-orange-500 transition">
+          {faq.question}
+        </span>
         <ChevronDown
           className={`w-5 h-5 transform transition-transform duration-300 text-gray-500 dark:text-white ${
-            isOpen ? "rotate-180" : ""
+            isOpen ? "rotate-180 text-orange-500" : ""
           }`}
         />
       </button>

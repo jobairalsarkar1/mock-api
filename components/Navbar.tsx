@@ -134,12 +134,14 @@ export default function Navbar() {
                   icon={<Home className="h-4 w-4" />}
                   text="Home"
                   active={pathname === "/"}
+                  showIcon={false}
                 />
                 <NavLink
                   href="/docs"
                   icon={<BookOpen className="h-4 w-4" />}
                   text="Docs"
                   active={pathname.startsWith("/docs")}
+                  showIcon={false}
                 />
                 {session?.user && (
                   <NavLink
@@ -324,12 +326,14 @@ function NavLink({
   text,
   active,
   onClick,
+  showIcon = true,
 }: {
   href: string;
   icon: React.ReactNode;
   text: string;
   active: boolean;
   onClick?: () => void;
+  showIcon?: boolean;
 }) {
   return (
     <Link
@@ -342,7 +346,7 @@ function NavLink({
           : "text-gray-600 dark:text-gray-400 hover:bg-orange-600/30 hover:text-gray-700/80 dark:hover:text-white/80"
       )}
     >
-      {icon}
+      {showIcon && icon}
       <span>{text}</span>
     </Link>
   );
