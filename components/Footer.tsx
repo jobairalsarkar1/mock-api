@@ -77,7 +77,7 @@ const Footer = () => {
           </Link>
           <Link
             href="/docs"
-            className="inline-flex items-center gap-3 px-6 py-2 border border-orange-500/80 dark:border-orange-600/80 text-gray-700 dark:text-gray-300 text-lg rounded-lg hover:bg-orange-100 dark:hover:bg-orange-600/10 transition"
+            className="inline-flex items-center justify-center gap-3 px-6 py-2 border border-orange-500/80 dark:border-orange-600/80 text-gray-700 dark:text-gray-300 text-lg rounded-lg hover:bg-orange-100 dark:hover:bg-orange-600/10 transition"
           >
             View Documentation
           </Link>
