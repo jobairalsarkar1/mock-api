@@ -1,6 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
-import { Github, Twitter, Linkedin, Mail, Youtube } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
 const Page = () => {
   return (
@@ -31,20 +31,32 @@ const Page = () => {
               </h3>
 
               <div className="flex flex-wrap gap-4 text-gray-500 dark:text-gray-400 justify-center md:justify-start">
-                <a href="#" className="hover:text-orange-500">
+                <a
+                  href="https://github.com/jobairalsarkar1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-500"
+                >
                   <Github className="w-6 h-6" />
                 </a>
-                <a href="#" className="hover:text-orange-500">
+                <a
+                  href="https://x.com/jobairalsarkar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-500"
+                >
                   <Twitter className="w-6 h-6" />
                 </a>
-                <a href="#" className="hover:text-orange-500">
+                <a
+                  href="https://www.linkedin.com/in/jobair-al-sarkar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-500"
+                >
                   <Linkedin className="w-6 h-6" />
                 </a>
-                <a href="#" className="hover:text-orange-500">
-                  <Youtube className="w-6 h-6" />
-                </a>
                 <a
-                  href="mailto:hello@example.com"
+                  href="mailto:jobair.a.sarkar@gmail.com"
                   className="hover:text-orange-500"
                 >
                   <Mail className="w-6 h-6" />
