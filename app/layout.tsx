@@ -18,6 +18,7 @@ const inter = Inter({ subsets: ["latin"] });
 // });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://placeapi.site"),
   title: "PlaceAPI - Mock & Realistic APIs for Developers",
   description:
     "PlaceAPI provides realistic mock APIs for frontend development, testing, and prototyping. Fast, production-ready, and easy to integrate.",
