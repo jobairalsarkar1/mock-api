@@ -35,14 +35,14 @@ const HeroSection = () => {
       <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
         <CustomBadge icon={Sparkles} text="Dummy Data APIs for Developers" />
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-800 dark:text-white/90">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800 dark:text-white/90">
           Build Faster with{" "}
           <span className="bg-gradient-to-r from-orange-300 via-orange-500 to-orange-600 dark:from-orange-200 dark:via-orange-500 dark:to-orange-600 bg-clip-text text-transparent">
             Mock APIs
           </span>
         </h1>
 
-        <p className="text-lg md:text-2xl text-gray-500 dark:text-gray-400 max-w-4xl mx-auto mb-10">
+        <p className="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-4xl mx-auto mb-10">
           Skip the backend setup. Get realistic dummy data instantly with our
           RESTful APIs. Perfect for frontend development, prototyping, and
           testing.
