@@ -440,21 +440,18 @@ const Page = () => {
                 </p>
 
                 <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-xl">
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Email us at:
-                  </p>
                   <a
                     href="mailto:privacy@placeapi.site"
                     className="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-orange-600 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
                   >
                     <Mail size={18} />
-                    <span>privacy@placeapi.site</span>
+                    <span>Contact Us</span>
                   </a>
 
                   {/* <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
                     Last updated: January 15, 2024
                   </p> */}
-                  <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
+                  <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
                     Last updated:{" "}
                     {new Date().toLocaleDateString("en-US", {
                       year: "numeric",

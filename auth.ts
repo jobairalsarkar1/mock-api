@@ -16,7 +16,7 @@ export const config = {
     Google,
     Resend({
       apiKey: process.env.AUTH_RESEND_KEY,
-      from: 'no-reply@jobairalsarkar.site',
+      from: 'no-reply@placeapi.site',
       normalizeIdentifier(identifier: string) {
         return identifier.toLowerCase().trim()
       },
