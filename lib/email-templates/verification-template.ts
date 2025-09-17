@@ -77,7 +77,7 @@ export const verificationEmailTemplate = (url: string, host: string) => `
     <body>
       <div class="card">
         <div class="header">
-          <img src="https://${host}/logo.svg" alt="PlaceAPI Logo" class="logo-img" />
+          <img src="https://www.placeapi.site/logo.svg" alt="PlaceAPI Logo" class="logo-img" />
           <span class="brand-name">PlaceAPI</span>
         </div>
         <div class="content">
