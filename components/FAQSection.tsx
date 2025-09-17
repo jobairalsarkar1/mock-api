@@ -17,7 +17,7 @@ const FAQSection = () => {
     <section className="pt-20 bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-14 sm:mb-16">
           <CustomBadge icon={HelpCircle} text="FAQ" />
           <SectionHeading
             title="Frequently Asked"

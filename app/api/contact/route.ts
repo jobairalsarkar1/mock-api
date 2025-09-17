@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Verified sender email
-    const senderEmail = "contact@jobairalsarkar.site";
+    const senderEmail = "contact@placeapi.site";
 
     // HTML email template
     const html = `
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
             <p style="background:#E4EDD9; padding:12px; border-radius:8px; color:#14532D;">${message}</p>
           </div>
           <div style="padding:15px; text-align:center; font-size:12px; color:#659E0F; background:#F0F9E8;">
-            Sent via jobairalsarkar.site
+            Sent via placeapi.site
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       "https://api.resend.com/emails",
       {
         from: `PlaceAPI <${senderEmail}>`,
-        to: "jobairalsarkar338@gmail.com",
+        to: "jobairalsarker@gmail.com",
         subject: `Contact Form: ${subject}`,
         html: html,
       },
