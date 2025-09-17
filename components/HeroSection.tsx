@@ -42,7 +42,7 @@ const HeroSection = () => {
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-4xl mx-auto mb-10">
+        <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-4xl mx-auto mb-10 px-6 sm:px-2">
           Skip the backend setup. Get realistic dummy data instantly with our
           RESTful APIs. Perfect for frontend development, prototyping, and
           testing.
@@ -66,7 +66,7 @@ const HeroSection = () => {
         </div>
 
         {/* Code Example Box */}
-        <div className="max-w-2xl mx-auto bg-gray-100/80 dark:bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:scale-105">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 py-4 sm:py-6 bg-gray-100/80 dark:bg-white/10 rounded-xl backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:scale-105">
           <div className="flex items-center gap-2 mb-4">
             <div className="w-3 h-3 bg-red-500 rounded-full"></div>
             <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
