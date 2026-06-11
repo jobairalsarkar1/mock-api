@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { formatDistanceToNow } from "date-fns";
-import { LayoutGrid, LayoutList } from "lucide-react";
+import { LayoutGrid, LayoutList, Loader2 } from "lucide-react";
 
 export interface ApiUsage {
   id: string;
@@ -13,42 +13,79 @@ export interface ApiUsage {
 
 interface ActivityLogProps {
   apiUsages: ApiUsage[];
+  hasMore: boolean;
+  loadingMore: boolean;
+  onLoadMore: () => void;
 }
 
-export default function ActivityLog({ apiUsages }: ActivityLogProps) {
+export default function ActivityLog({
+  apiUsages,
+  hasMore,
+  loadingMore,
+  onLoadMore,
+}: ActivityLogProps) {
   const [view, setView] = useState<"table" | "grid">("table");
+  const observerTarget = useRef<HTMLDivElement | null>(null);
+
+  // Automated window baseline infinite-scrolling trigger config
+  useEffect(() => {
+    const target = observerTarget.current;
+    if (!target || !hasMore) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loadingMore) {
+          onLoadMore();
+        }
+      },
+      { threshold: 0.1, rootMargin: "150px" }, // Pre-triggers 150px before screen edge baseline
+    );
+
+    observer.observe(target);
+
+    return () => {
+      if (target) observer.unobserve(target);
+    };
+  }, [hasMore, loadingMore, onLoadMore]);
 
   return (
     <div className="bg-white dark:bg-gray-900 rounded-xl p-4 sm:p-6 border border-gray-200 dark:border-gray-800 shadow-sm dark:shadow-none">
-      {/* Header with toggle */}
+      {/* View Switcher Controls Header */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold">Activity Log</h2>
         <div className="flex space-x-2">
           <button
             onClick={() => setView("table")}
-            className={`flex items-center justify-center px-1 py-1 rounded-md transition-colors ${
+            className={`flex items-center justify-center px-2 py-1 rounded-md transition-colors ${
               view === "table"
                 ? "bg-orange-500 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
-            } transition-colors`}
+            }`}
           >
             <LayoutList className="w-5 h-5" />
           </button>
           <button
             onClick={() => setView("grid")}
-            className={`flex items-center justify-center px-1 py-1 rounded-md transition-colors ${
+            className={`flex items-center justify-center px-2 py-1 rounded-md transition-colors ${
               view === "grid"
                 ? "bg-orange-500 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
-            } transition-colors`}
+            }`}
           >
             <LayoutGrid className="w-5 h-5" />
           </button>
         </div>
       </div>
 
-      {/* Table View */}
-      {view === "table" && (
+      {/* Empty State Fallback Layout */}
+      {apiUsages.length === 0 && (
+        <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+          No API usage logs found.
+        </div>
+      )}
+
+      {/* Table Interface View Layout Option */}
+      {view === "table" && apiUsages.length > 0 && (
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
             <thead>
@@ -76,7 +113,7 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
                   <td className="px-3 py-2.5 text-sm font-medium text-gray-900 dark:text-gray-100">
                     {idx + 1}
                   </td>
-                  <td className="px-3 py-2.5 text-sm text-gray-900 dark:text-gray-100 truncate">
+                  <td className="px-3 py-2.5 text-sm text-gray-900 dark:text-gray-100 max-w-xs sm:max-w-none truncate">
                     {usage.endpoint}
                   </td>
                   <td className="px-3 py-2.5 whitespace-nowrap">
@@ -108,8 +145,8 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
         </div>
       )}
 
-      {/* Grid View */}
-      {view === "grid" && (
+      {/* Grid Interface View Layout Option */}
+      {view === "grid" && apiUsages.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {apiUsages.map((usage, idx) => (
             <div
@@ -146,6 +183,17 @@ export default function ActivityLog({ apiUsages }: ActivityLogProps) {
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Intersection Observer anchor point element sentinel hook */}
+      <div ref={observerTarget} className="h-2 w-full invisible" />
+
+      {/* Bottom status activity spinner wrapper element */}
+      {loadingMore && (
+        <div className="flex justify-center items-center gap-2 py-4 mt-4 text-sm font-medium text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-800">
+          <Loader2 className="w-5 h-5 animate-spin text-orange-500" />
+          <span>Fetching more activity records...</span>
         </div>
       )}
     </div>
