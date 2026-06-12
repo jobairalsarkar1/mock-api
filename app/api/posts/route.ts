@@ -1,10 +1,11 @@
 // Enable Edge Runtime + Shared CDN Caching
-export const runtime = 'edge';
-export const dynamic = 'force-static';
+// export const runtime = 'edge';
 
 import { prisma } from "@/lib/prisma";
 import { validateApiKey, logApiUsage } from "@/lib/apiKey";
 import { NextResponse } from "next/server";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
   try {
@@ -12,7 +13,7 @@ export async function GET(request: Request) {
     if ("error" in validation) {
       return NextResponse.json(
         { success: false, error: validation.error },
-        { status: validation.status }
+        { status: validation.status },
       );
     }
 
@@ -44,9 +45,10 @@ export async function GET(request: Request) {
     };
 
     const response = NextResponse.json(responseBody);
+
     response.headers.set(
       "Cache-Control",
-      "public, max-age=60, stale-while-revalidate=30"
+      "public, max-age=60, stale-while-revalidate=30",
     );
 
     return response;
@@ -62,7 +64,7 @@ export async function GET(request: Request) {
     console.error(error);
     return NextResponse.json(
       { success: false, error: "Failed to fetch posts" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
