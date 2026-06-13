@@ -5,7 +5,7 @@ Easily test, simulate, and integrate APIs with a developer-friendly interface.
 
 ---
 
-## ✨ Features
+## Features
 
 * High performance & scalability with Next.js 15
 * Modern UI styled using TailwindCSS v4
@@ -17,7 +17,7 @@ Easily test, simulate, and integrate APIs with a developer-friendly interface.
 
 ---
 
-## 📦 Tech Stack
+## Tech Stack
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge\&logo=nextdotjs\&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge\&logo=react\&logoColor=61DAFB)
@@ -32,16 +32,16 @@ Easily test, simulate, and integrate APIs with a developer-friendly interface.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone git@github.com:jobairalsarkar1/mock-api.git
 cd mock-api
 ```
 
-### 2️⃣ Install Dependencies
+### Install Dependencies
 
 ```bash
 npm install
@@ -49,7 +49,7 @@ npm install
 yarn install
 ```
 
-### 3️⃣ Setup Environment
+### Setup Environment
 
 Create a `.env` file in the root directory and configure the following:
 
@@ -74,7 +74,7 @@ AUTH_GITHUB_SECRET=your_github_client_secret_here
 
 ```
 
-### 4️⃣ Run the Project
+### Run the Project
 
 ```bash
 npm run dev
@@ -84,7 +84,7 @@ Project will be live at **[http://localhost:3000](http://localhost:3000)**
 
 ---
 
-## 📖 Usage
+## Usage
 
 * Browse categories & features
 * Generate mock API endpoints
@@ -93,7 +93,7 @@ Project will be live at **[http://localhost:3000](http://localhost:3000)**
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome!
 
@@ -105,7 +105,7 @@ Contributions are welcome!
 
 ---
 
-## 📬 Contact
+## Contact
 
 **Jobair Al Sarkar**
 📍 Dhaka, Bangladesh
@@ -119,6 +119,6 @@ Contributions are welcome!
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **Apache License 2.0**. Feel free to use and modify for personal or commercial projects.
