@@ -1,21 +1,17 @@
 # PlaceAPI
 
-A modern **mock API platform** built with **Next.js 15**, **TypeScript**, and **Prisma**.
-Easily test, simulate, and integrate APIs with a developer-friendly interface.
+A mock API platform built with **Next.js 15**, **TypeScript**, and **Prisma** that helps developers create, test, and manage API endpoints without setting up a complete backend.
 
----
 
 ## Features
 
-* High performance & scalability with Next.js 15
-* Modern UI styled using TailwindCSS v4
-* Secure authentication powered by Auth.js (Formally known as NextAuth) with Prisma Adapter
-* API simulation and mock data endpoints
-* Visual analytics powered by Recharts
-* Email integration via Resend
+* Create and manage mock API endpoints
+* Test API responses during development
+* Authentication with Auth.js and Prisma Adapter
+* Email integration using Resend
+* Analytics dashboard powered by Recharts
+* Fast and responsive UI with Tailwind CSS
 * Lightweight state management with Zustand
-
----
 
 ## Tech Stack
 
@@ -25,12 +21,11 @@ Easily test, simulate, and integrate APIs with a developer-friendly interface.
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge\&logo=tailwind-css\&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge\&logo=prisma\&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge\&logo=postgresql\&logoColor=white)
-![NextAuth](https://img.shields.io/badge/NextAuth.js-000000?style=for-the-badge\&logo=auth0\&logoColor=white)
+![Auth.js](https://img.shields.io/badge/Auth.js-000000?style=for-the-badge\&logo=auth0\&logoColor=white)
 ![Zustand](https://img.shields.io/badge/Zustand-181717?style=for-the-badge\&logo=react\&logoColor=white)
 ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge\&logo=axios\&logoColor=white)
 ![Recharts](https://img.shields.io/badge/Recharts-61DAFB?style=for-the-badge\&logo=recharts\&logoColor=black)
 
----
 
 ## Getting Started
 
@@ -45,22 +40,20 @@ cd mock-api
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 ### Setup Environment
 
-Create a `.env` file in the root directory and configure the following:
+Create a `.env` file in the project root and configure the following:
 
 ```env
 # Database URL (PostgreSQL)
 DATABASE_URL=postgresql://username:password@host:port/database?sslmode=require&channel_binding=require
 
-# NextAuth secret
+# Auth.js Secret
 NEXTAUTH_SECRET=your_nextauth_secret_here
 
-# Resend email service API key
+# Resend
 AUTH_RESEND_KEY=your_resend_key_here
 RESEND_API_KEY=your_resend_key_here
 
@@ -71,7 +64,6 @@ AUTH_GOOGLE_SECRET=your_google_client_secret_here
 # GitHub OAuth
 AUTH_GITHUB_ID=your_github_client_id_here
 AUTH_GITHUB_SECRET=your_github_client_secret_here
-
 ```
 
 ### Run the Project
@@ -80,45 +72,30 @@ AUTH_GITHUB_SECRET=your_github_client_secret_here
 npm run dev
 ```
 
-Project will be live at **[http://localhost:3000](http://localhost:3000)**
+The application will be available at:
 
----
-
-## Usage
-
-* Browse categories & features
-* Generate mock API endpoints
-* View live response previews
-* Authenticate & save your API collections
-
----
+```text
+http://localhost:3000
+```
 
 ## Contributing
 
-Contributions are welcome!
+Contributions are welcome. Feel free to open an issue or submit a pull request.
 
-1. Fork the repo
-2. Create a new branch (`feature/awesome-feature`)
-3. Commit your changes
-4. Push to your branch
-5. Open a Pull Request
+## Author
 
----
+**Jobair Al Sarkar** |
+Software Engineer
 
-## Contact
+Portfolio: https://www.jobairalsarkar.site
 
-**Jobair Al Sarkar**
-📍 Dhaka, Bangladesh
-📞 +8801766961460
-📧 [jobair.a.sarkar@gmail.com](mailto:jobair.a.sarkar@gmail.com)
+Email: [jobair.a.sarkar@gmail.com](mailto:jobair.a.sarkar@gmail.com)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/jobair-al-sarkar/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/jobairalsarkar1)
-[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge\&logo=facebook\&logoColor=white)](https://www.facebook.com/profile.php?id=100081410426667)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge\&logo=twitter\&logoColor=white)](https://x.com/jobairalsarkar)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/jobair-al-sarkar)
 
 ---
 
 ## License
 
-This project is licensed under the **Apache License 2.0**. Feel free to use and modify for personal or commercial projects.
+This project is licensed under the **Apache License 2.0**.
