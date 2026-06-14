@@ -84,12 +84,11 @@ Contributions are welcome. Feel free to open an issue or submit a pull request.
 
 ## Author
 
-**Jobair Al Sarkar** |
-Software Engineer
+**Jobair Al Sarkar** | Software Engineer
 
-Portfolio: https://www.jobairalsarkar.site
-
+Portfolio: https://www.jobairalsarkar.com<br>
 Email: [jobair.a.sarkar@gmail.com](mailto:jobair.a.sarkar@gmail.com)
+
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/jobairalsarkar1)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/jobair-al-sarkar)
