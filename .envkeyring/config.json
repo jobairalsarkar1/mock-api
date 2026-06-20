@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "createdAt": "2026-06-20T13:35:49.288Z",
+  "vaultFile": "vault.enc.json",
+  "include": [
+    ".env",
+    ".env.*",
+    "**/.env",
+    "**/.env.*"
+  ],
+  "exclude": [
+    ".env.example",
+    ".env.*.example",
+    ".env.sample",
+    ".env.*.sample",
+    ".env.template",
+    ".env.*.template",
+    "**/.env.example",
+    "**/.env.*.example",
+    "**/.env.sample",
+    "**/.env.*.sample",
+    "**/.env.template",
+    "**/.env.*.template"
+  ],
+  "signingPublicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAN5u+ns9UGhvLkvb1PWKWnrI0GiBliTlv7AOt8b2JDG0=\n-----END PUBLIC KEY-----\n",
+  "signingPublicKeyFingerprint": "056c0024be5f272f"
+}

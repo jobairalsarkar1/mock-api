@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "revision": 1,
+  "sealedAt": "2026-06-20T13:36:43.880Z",
+  "sealedBy": "jobairalsarkar",
+  "files": [
+    {
+      "path": ".env.local",
+      "keys": [
+        "AUTH_GITHUB_ID",
+        "AUTH_GITHUB_SECRET",
+        "AUTH_GOOGLE_ID",
+        "AUTH_GOOGLE_SECRET",
+        "AUTH_RESEND_KEY",
+        "AUTH_SECRET",
+        "DATABASE_URL",
+        "RESEND_API_KEY",
+        "VERCEL_OIDC_TOKEN"
+      ]
+    }
+  ],
+  "changes": {
+    "addedFiles": [
+      ".env.local"
+    ],
+    "removedFiles": [],
+    "addedKeys": {},
+    "removedKeys": {}
+  },
+  "signature": {
+    "algorithm": "ed25519",
+    "publicKeyFingerprint": "056c0024be5f272f",
+    "value": "4pmIToV2Fy4w0HH1Vo+rrllk04zIK+5xDVFmnwjhb0Q94WaeP2JJCr/yjiWF6oFvPPvR0meBoUfR5zSMCaddBw=="
+  }
+}
